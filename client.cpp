@@ -107,7 +107,7 @@ void Client::supprimer_client(Client c){
 }
 //afficher les clients
 QSqlQueryModel* Client::afficher_client(){
-   QString sQuery="SELECT CIN,NOM_C,PRENOM_C,AGE,ADRESSE_C,NUMERO_TEL,EMAIL_C FROM CLIENTS";
+   QString sQuery="SELECT CIN,NOM_C,PRENOM_C,AGE,ADRESSE_C,NUMERO_TEL,EMAIL_C,PTS_FIDELITE FROM CLIENTS";
 
    QSqlQueryModel* model=new QSqlQueryModel();
 
@@ -121,7 +121,7 @@ return model;
 }
 //afficher les clients selon le nom
 QSqlQueryModel* Client::afficher_client_trie_nom(){
-    QString sQuery="SELECT CIN,NOM_C,PRENOM_C,AGE,ADRESSE_C,NUMERO_TEL,EMAIL_C FROM CLIENTS ORDER BY NOM_C";
+    QString sQuery="SELECT CIN,NOM_C,PRENOM_C,AGE,ADRESSE_C,NUMERO_TEL,EMAIL_C,PTS_FIDELITE FROM CLIENTS ORDER BY NOM_C";
 
     QSqlQueryModel*model1=new QSqlQueryModel();
 
@@ -135,7 +135,7 @@ return model1;
 }
 //afficher les clients selon le prenom
 QSqlQueryModel* Client::afficher_client_trie_prenom(){
-    QString sQuery="SELECT CIN,NOM_C,PRENOM_C,AGE,ADRESSE_C,NUMERO_TEL,EMAIL_C FROM CLIENTS ORDER BY PRENOM_C";
+    QString sQuery="SELECT CIN,NOM_C,PRENOM_C,AGE,ADRESSE_C,NUMERO_TEL,EMAIL_C,PTS_FIDELITE FROM CLIENTS ORDER BY PRENOM_C";
 
     QSqlQueryModel*model2=new QSqlQueryModel();
 
@@ -149,7 +149,7 @@ return model2;
 }
 //afficher les clients selon l'age
 QSqlQueryModel* Client::afficher_client_trie_age(){
-    QString sQuery="SELECT CIN,NOM_C,PRENOM_C,AGE,ADRESSE_C,NUMERO_TEL,EMAIL_C FROM CLIENTS ORDER BY AGE";
+    QString sQuery="SELECT CIN,NOM_C,PRENOM_C,AGE,ADRESSE_C,NUMERO_TEL,EMAIL_C,PTS_FIDELITE FROM CLIENTS ORDER BY AGE";
 
     QSqlQueryModel*model3=new QSqlQueryModel();
 
@@ -163,7 +163,7 @@ return model3;
 }
 // afficher client recherche
 QSqlQueryModel* Client::afficher_client_recherche(QString rech){
-QString sQuery="SELECT CIN,NOM_C,PRENOM_C,AGE,ADRESSE_C,NUMERO_TEL,EMAIL_C FROM CLIENTS WHERE NOM_C LIKE'%"+rech+"%' or PRENOM_C LIKE'%"+rech+"%'";
+QString sQuery="SELECT CIN,NOM_C,PRENOM_C,AGE,ADRESSE_C,NUMERO_TEL,EMAIL_C,PTS_FIDELITE FROM CLIENTS WHERE NOM_C LIKE'%"+rech+"%' or PRENOM_C LIKE'%"+rech+"%'";
 
 QSqlQueryModel*model4=new QSqlQueryModel();
 
@@ -174,4 +174,56 @@ qry.prepare(sQuery);
 qry.exec();
 model4->setQuery(qry);
 return model4;
+}
+//retourne prix initial
+float Client::nbr_fidelite0(){
+    QString sQuery="SELECT PRIX FROM PRODUITS";
+    float prix=0;
+    QSqlQuery qry;
+
+    qry.prepare(sQuery);
+    if(qry.exec()){
+        while(qry.next()){
+            prix=qry.value(0).toFloat();
+        }
+    }
+    return prix;
+}
+//retourne le prix apres soustraction
+float Client::nbr_fidelite(float prix){
+while(prix>200){
+if(prix>=200){
+    prix=prix-200;
+    return prix;
+}
+else return prix;}
+}
+//calcule le nbr de fidelite est decrimente le prix
+void Client::nbr_fidelite2(float prix,QString nom){
+    prix=nbr_fidelite0();
+    float pts_fidelite;
+    pts_fidelite=prix/2;
+    QSqlQuery qry,qry1;
+    if(pts_fidelite>=200){
+    pts_fidelite=nbr_fidelite(pts_fidelite);
+    QString prixx = QString::number(pts_fidelite);
+    //qry1.prepare("UPDATE CLIENTS SET PTS_FIDELITE=");
+    qry.prepare("UPDATE CLIENTS SET PTS_FIDELITE='"+prixx+"' WHERE NOM_C='"+nom+"'");
+    if(qry.exec()){
+        QMessageBox::critical(nullptr, QObject::tr("sql query successful"),
+                           QObject::tr(" successfully.\n"
+                                       "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+    else{
+        QMessageBox::critical(nullptr, QObject::tr("sql query not successful"),
+                           QObject::tr("unsuccessfully.\n"
+                                       "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+    }
+    else{
+        QMessageBox::critical(nullptr, QObject::tr("sql query not successful"),
+                           QObject::tr("don't have fidelity points.\n"
+                                       "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+
 }

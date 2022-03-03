@@ -163,7 +163,7 @@ void MainWindow::on_pushButton_3_clicked()
  ui->tableView->setModel(c.afficher_client());
 }
 
-//afficher clients in tableview and in the lineEdits
+//afficher clients  in the lineEdits
 void MainWindow::on_tableView_activated(const QModelIndex &index)
 {
     QString val=ui->tableView->model()->data(index).toString();
@@ -220,7 +220,13 @@ void MainWindow::on_pushButton_6_clicked()
 
 //generate pdf of coupon button clicked
 void MainWindow::on_pushButton_4_clicked()
-{
+{   
+    Client c;
+    float prix=0;
+ QString nom,prenom,space;
+ space=" ";
+ nom=ui->lineEdit_nom->text();
+ prenom=ui->lineEdit_prenom->text();
 QDateTime date = QDateTime::currentDateTime();
 QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
 QPdfWriter pdf("D:/Esprit/c++/QT exercices/Hydro_Plus_Pdf/pdf_test1.pdf");
@@ -228,17 +234,19 @@ QPdfWriter pdf("D:/Esprit/c++/QT exercices/Hydro_Plus_Pdf/pdf_test1.pdf");
 QPainter painter(&pdf);
 
 painter.setPen(Qt::blue);
-painter.drawText(4500,0,"Hydro+ pressing");
+painter.drawText(4500,200,"Hydro+ pressing");
 
 painter.setPen(Qt::blue);
-painter.drawText(100,400,"hello,we are pleased to tell you that due to your purchases you have a 10% coupon to use in your next purchase");
+painter.drawText(100,800,"hello Mr/s."+nom+""+space+""+prenom+""+space+"we are pleased to tell you that due to your purchases you have a 10% coupon to use in your next purchase");
 painter.setPen(Qt::red);
-painter.drawText(100,600,"CODE:10HYriKf");
+painter.drawText(100,1000,"CODE:10HYriKf");
 painter.setPen(Qt::blue);
-painter.drawText(100,800,formattedTime);
+painter.drawText(100,1200,formattedTime);
 painter.drawPixmap(QRect(3000,2000,4000,3000),QPixmap("C:/Users/MAG-PC/OneDrive/Pictures/coupon10%OFF.png"));
+painter.drawPixmap(QRect(-300,-300,1500,1000),QPixmap("C:/Users/MAG-PC/OneDrive/Pictures/hydro+2.png"));
 
 painter.end();
+c.nbr_fidelite2(prix,nom);
 }
 
 

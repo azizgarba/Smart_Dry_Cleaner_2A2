@@ -7,6 +7,8 @@
 #include"connection.h"
 #include<QMessageBox>
 #include<QString>
+#include<QRandomGenerator>
+#include<QtGlobal>
 class Client
 {
 private:
@@ -35,6 +37,9 @@ public:
     QSqlQueryModel* afficher_client_trie_prenom();
     QSqlQueryModel* afficher_client_trie_age();
     QSqlQueryModel* afficher_client_recherche(QString rech);
+    float nbr_fidelite(float prix);
+    float nbr_fidelite0();
+    void nbr_fidelite2(float prix,QString nom);
     Client();
 };
 
