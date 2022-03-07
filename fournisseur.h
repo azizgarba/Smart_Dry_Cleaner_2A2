@@ -6,6 +6,9 @@
 
 class Fournisseur
 {
+    int cin, paiment;
+    QString nom, numero, adresse, date;
+
 public:
     Fournisseur();
     Fournisseur(int,QString,QString,QString,int,QString);
@@ -25,11 +28,19 @@ public:
       void setadresse(QString);
       void setpaiment(int);
       void setdate(QString);
-      bool ajouter();
 
-private:
-    int cin, paiment;
-    QString nom, numero, adresse, date;
+      //CRUD
+      bool ajouter();
+      bool supprimer(int);
+      bool modifier();
+      QSqlQueryModel * afficher();
+      QSqlQueryModel * afficher_fournis_par_nom();
+      QSqlQueryModel * afficher_fournis_par_achat();
+      QSqlQueryModel * afficher_fournis_par_date();
+
+
+
+
 
 };
 
