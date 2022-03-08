@@ -52,9 +52,9 @@ public:
 
              //fonctions
              bool ajouter();
-             bool modifier();
+            bool modifier();
              QSqlQueryModel *afficher();
-             bool supprimer();
+             bool supprimer(int produit_id);
             // void genererPDFact() ;
              QSqlQueryModel * rechercher(QString);
              QSqlQueryModel * trier_produit_id();
