@@ -40,7 +40,7 @@ public:
            bool ajouterOffre();
            bool modifierOffre();
            QSqlQueryModel *afficherOffre();
-           bool supprimerOffre();
+           bool supprimerOffre(int offre_id);
 };
 
 #endif // OFFRE_H
