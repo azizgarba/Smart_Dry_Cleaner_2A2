@@ -38,6 +38,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    Fournisseur ftmp;
 
 };
 #endif // MAINWINDOW_H

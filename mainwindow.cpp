@@ -110,25 +110,16 @@ void MainWindow::on_le_aff_clicked()
 
 void MainWindow::on_pb_supprimer_clicked()
 {
-      Fournisseur F1; F1.setcin(ui->le_supp->text().toUInt());
-      bool test=F1.supprimer(F1.getcin());
-      if (test)
-              {
-                  Fournisseur Fe;
-                  ui->tab_fournisseurs->setModel(Fe.afficher());
-                  QMessageBox::information(nullptr, QObject::tr("ok"),
-                                           QObject::tr("Supprimer effectué.\n"
-                                                       "Click cancel to exit."), QMessageBox::Cancel);
-              }
-              else
-                  QMessageBox::critical(nullptr, QObject::tr("not ok"),
-                                        QObject::tr("Supprimer non effectué.\n"
-                                                    "Click cancel to exit."), QMessageBox::Cancel);
-
-     }
+    QItemSelectionModel *select = ui->tab_fournisseurs->selectionModel();
+                   int cin =select->selectedRows().value(0).data().toInt();
+                   if(ftmp.supprimer(cin))
+                   {
+                       ui->tab_fournisseurs->setModel(ftmp.afficher());
+                       ui->statusbar->showMessage("SUPPRESSION : SUCCESS");
+                   }
 
 
-
+}
 
 
 void MainWindow::on_pb_supprimer_pressed()

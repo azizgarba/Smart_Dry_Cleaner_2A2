@@ -291,7 +291,7 @@ border-color: rgb(0, 129, 233);
     <widget class="QPushButton" name="pb_ajouter">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>0</x>
        <y>330</y>
        <width>93</width>
        <height>28</height>
@@ -312,6 +312,29 @@ border-color: rgb(0, 129, 233);
      </property>
      <property name="text">
       <string>Ajouter</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pb_modifier">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>330</y>
+       <width>91</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Consolas</family>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>Modifier</string>
      </property>
     </widget>
    </widget>
@@ -383,10 +406,10 @@ border-color: rgb(0, 129, 233);
    <widget class="QPushButton" name="pb_supprimer">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>260</y>
-      <width>91</width>
-      <height>28</height>
+      <x>580</x>
+      <y>237</y>
+      <width>101</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -429,7 +452,7 @@ border-color: rgb(0, 129, 233);
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>300</x>
       <y>220</y>
       <width>71</width>
       <height>41</height>
@@ -453,7 +476,7 @@ border-color: rgb(0, 129, 233);
    <widget class="QComboBox" name="pb_tri">
     <property name="geometry">
      <rect>
-      <x>410</x>
+      <x>290</x>
       <y>250</y>
       <width>121</width>
       <height>21</height>
@@ -484,10 +507,10 @@ border-color: rgb(0, 129, 233);
    <widget class="QGraphicsView" name="graphicsView_2">
     <property name="geometry">
      <rect>
-      <x>400</x>
+      <x>280</x>
       <y>220</y>
       <width>151</width>
-      <height>81</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -560,59 +583,6 @@ border-radius:10px;
      </property>
     </item>
    </widget>
-   <widget class="QGraphicsView" name="graphicsView_4">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>220</y>
-      <width>211</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_9">
-    <property name="geometry">
-     <rect>
-      <x>580</x>
-      <y>220</y>
-      <width>201</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Consolas</family>
-      <weight>75</weight>
-      <italic>false</italic>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color:  rgb(0, 0, 0);</string>
-    </property>
-    <property name="text">
-     <string>taper le cin a supprimer:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="le_supp">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>260</y>
-      <width>71</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:rgb(169, 223, 247);
-color:  rgb(0, 0, 0);
-border-color: rgb(0, 129, 233);
-border-radius:10px;</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
@@ -623,35 +593,12 @@ border-radius:10px;</string>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pb_modifier">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>270</y>
-      <width>161</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Consolas</family>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>Modifier</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="le_aff">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>220</y>
-      <width>161</width>
+      <x>290</x>
+      <y>290</y>
+      <width>131</width>
       <height>28</height>
      </rect>
     </property>
@@ -672,8 +619,8 @@ border-radius:10px;</string>
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>800</x>
-      <y>240</y>
+      <x>760</x>
+      <y>230</y>
       <width>161</width>
       <height>51</height>
      </rect>
@@ -692,7 +639,6 @@ border-radius:10px;</string>
      <string>Afficher un PDF</string>
     </property>
    </widget>
-   <zorder>graphicsView_4</zorder>
    <zorder>graphicsView_2</zorder>
    <zorder>groupBox</zorder>
    <zorder>groupBox_2</zorder>
@@ -704,10 +650,7 @@ border-radius:10px;</string>
    <zorder>graphicsView_3</zorder>
    <zorder>label_8</zorder>
    <zorder>comboBox_2</zorder>
-   <zorder>label_9</zorder>
-   <zorder>le_supp</zorder>
    <zorder>lineEdit</zorder>
-   <zorder>pb_modifier</zorder>
    <zorder>le_aff</zorder>
    <zorder>pushButton_4</zorder>
   </widget>
