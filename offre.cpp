@@ -52,3 +52,5 @@ bool offre::supprimerOffre(int offre_id)
        qry.bindValue(":offre_id",offre_id);
        return qry.exec();
 }
+
+

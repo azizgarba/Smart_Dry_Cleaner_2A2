@@ -50,6 +50,18 @@ private slots:
 
     void on_pushButton_2_pressed();
 
+    void on_treeView_activated(const QModelIndex &index);
+
+    void on_treeView_2_activated(const QModelIndex &index);
+
+    void on_pushButton_10_clicked();
+
+    void on_pushButton_11_clicked();
+
+    void on_pushButton_13_clicked();
+
+    void on_treeView_offre_activated(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
     produit pr ;

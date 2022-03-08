@@ -72,10 +72,10 @@
      <widget class="QPushButton" name="pushButton_7">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>250</y>
-        <width>93</width>
-        <height>28</height>
+        <x>280</x>
+        <y>240</y>
+        <width>131</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="font">
@@ -97,9 +97,9 @@
      <widget class="QLineEdit" name="lineEdit_7">
       <property name="geometry">
        <rect>
-        <x>530</x>
+        <x>480</x>
         <y>10</y>
-        <width>121</width>
+        <width>171</width>
         <height>31</height>
        </rect>
       </property>
@@ -261,13 +261,12 @@ border-raduis = 10px;</string>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(169, 223, 247);
 color:rgb(0,0,0);
-
-color: rgb(0, 85, 0);
-
 border-radius:10px;
-width: 0px;
-height: 8000px;
+
 </string>
+       </property>
+       <property name="text">
+        <string/>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_2">
@@ -424,7 +423,7 @@ height: 8000px;</string>
        <string>Afficher Excel</string>
       </property>
      </widget>
-     <widget class="QTableView" name="tableView">
+     <widget class="QTreeView" name="treeView">
       <property name="geometry">
        <rect>
         <x>280</x>
@@ -435,39 +434,21 @@ height: 8000px;</string>
       </property>
       <property name="font">
        <font>
-        <kerning>false</kerning>
+        <family>Segoe UI</family>
+        <kerning>true</kerning>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_6">
-      <property name="geometry">
-       <rect>
-        <x>300</x>
-        <y>250</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(169, 223, 247);
-color:rgb(0,0,0);
-
-color: rgb(0, 85, 0);
-
-border-radius:10px;
-width: 0px;
-height: 8000px;</string>
+       <string notr="true">background-color: transparent;
+border-color: transparent;</string>
       </property>
      </widget>
      <widget class="QGroupBox" name="groupBox_2">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>290</y>
-        <width>261</width>
+        <y>300</y>
+        <width>331</width>
         <height>171</height>
        </rect>
       </property>
@@ -504,8 +485,8 @@ height: 8000px;</string>
       <widget class="QLabel" name="label_7">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>70</y>
+         <x>60</x>
+         <y>110</y>
          <width>91</width>
          <height>16</height>
         </rect>
@@ -526,8 +507,8 @@ height: 8000px;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>100</y>
-         <width>151</width>
+         <y>70</y>
+         <width>161</width>
          <height>31</height>
         </rect>
        </property>
@@ -566,7 +547,7 @@ height: 8000px;</string>
       <widget class="QLineEdit" name="lineEdit_9">
        <property name="geometry">
         <rect>
-         <x>110</x>
+         <x>140</x>
          <y>70</y>
          <width>113</width>
          <height>22</height>
@@ -586,7 +567,7 @@ height: 8000px;</string>
       <widget class="QLineEdit" name="lineEdit_10">
        <property name="geometry">
         <rect>
-         <x>140</x>
+         <x>170</x>
          <y>100</y>
          <width>113</width>
          <height>22</height>
@@ -626,7 +607,7 @@ height: 8000px;</string>
       <widget class="QPushButton" name="pushButton_3">
        <property name="geometry">
         <rect>
-         <x>130</x>
+         <x>120</x>
          <y>140</y>
          <width>93</width>
          <height>28</height>
@@ -643,90 +624,38 @@ height: 8000px;</string>
         <string>Modifier</string>
        </property>
       </widget>
+      <widget class="QPushButton" name="pushButton_4">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>140</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Supprimer</string>
+       </property>
+      </widget>
      </widget>
-     <widget class="QTableView" name="tableView_2">
+     <widget class="QTreeView" name="treeView_2">
       <property name="geometry">
        <rect>
-        <x>290</x>
-        <y>280</y>
-        <width>461</width>
-        <height>131</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_10">
-      <property name="geometry">
-       <rect>
-        <x>280</x>
-        <y>230</y>
-        <width>231</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>9</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Id du produit a supprimer :</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_4">
-      <property name="geometry">
-       <rect>
-        <x>470</x>
-        <y>440</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>9</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Supprimer</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_11">
-      <property name="geometry">
-       <rect>
-        <x>290</x>
-        <y>420</y>
-        <width>251</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>9</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Id d'offre a supprimer :</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_11">
-      <property name="geometry">
-       <rect>
-        <x>320</x>
-        <y>440</y>
-        <width>113</width>
-        <height>22</height>
+        <x>370</x>
+        <y>310</y>
+        <width>391</width>
+        <height>151</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(169, 223, 247);
-color:rgb(0,0,0);
-
-color: rgb(0, 85, 0);
-
-border-radius:10px;
-width: 0px;
-height: 8000px;
-</string>
+       <string notr="true">background-color: transparent;</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_5">
@@ -819,14 +748,9 @@ height: 8000px;
      <zorder>lineEdit_7</zorder>
      <zorder>groupBox</zorder>
      <zorder>pushButton_9</zorder>
-     <zorder>tableView</zorder>
-     <zorder>lineEdit_6</zorder>
+     <zorder>treeView</zorder>
      <zorder>groupBox_2</zorder>
-     <zorder>tableView_2</zorder>
-     <zorder>label_10</zorder>
-     <zorder>pushButton_4</zorder>
-     <zorder>label_11</zorder>
-     <zorder>lineEdit_11</zorder>
+     <zorder>treeView_2</zorder>
      <zorder>pushButton_5</zorder>
      <zorder>radioButton</zorder>
      <zorder>pushButton_8</zorder>
@@ -837,6 +761,52 @@ height: 8000px;
      <attribute name="title">
       <string>Gestion Des Clients</string>
      </attribute>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>-10</y>
+        <width>771</width>
+        <height>471</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="page">
+       <widget class="QTextBrowser" name="textBrowser">
+        <property name="geometry">
+         <rect>
+          <x>-10</x>
+          <y>0</y>
+          <width>791</width>
+          <height>481</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-image:url(C:/Users/rania/OneDrive/Bureau/lolo.png);</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <widget class="QPushButton" name="pushButton_11">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>140</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>retourner</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
     </widget>
    </widget>
   </widget>

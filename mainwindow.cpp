@@ -20,9 +20,11 @@ MainWindow::MainWindow(QWidget *parent)
         ui->lineEdit_4->setValidator(new QIntValidator(0,9999999,this));
         //------------------
         ui->lineEdit_8->setValidator(new QIntValidator(0,9999,this));
-        ui->lineEdit_10->setValidator(validator);
         ui->lineEdit_9->setValidator(validator);
-        
+          ui->lineEdit_10->setValidator(new QIntValidator(0,9999999,this));
+
+
+
     ui->treeView->setModel(pr.afficher());
     ui->treeView->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->treeView->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -30,6 +32,8 @@ MainWindow::MainWindow(QWidget *parent)
             ui->treeView_2->setModel(of.afficherOffre());
             ui->treeView_2->setSelectionBehavior(QAbstractItemView::SelectRows);
             ui->treeView_2->setSelectionMode(QAbstractItemView::SingleSelection);
+
+
 
 
 }
@@ -188,6 +192,8 @@ void MainWindow::on_treeView_2_activated(const QModelIndex &index)
            }
        }
 }
+
+
 
 
 
