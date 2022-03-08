@@ -5,10 +5,6 @@
 #include <QComboBox>
 #include <QApplication>
 #include <QtCore>
-#include <QtPrintSupport/QPrinter>
-#include <QPdfWriter>
-#include <QPainter>
-#include<QPaintEngineState>
 #include <QSystemTrayIcon>
 #include<QMessageBox>
 produit::produit()
@@ -29,14 +25,31 @@ bool produit::ajouter()
 }
 bool produit::modifier()
 {
-    QSqlQuery query;
-    query.prepare("UPDATE produit SET produit_id= :produit_id, type= :type,matiere= :matiere, etat_p= :etat_p,prix= :prix where produit_id= :produit_id ");
-    query.bindValue(":produit_id", produit_id);
-    query.bindValue(":type", type);
-    query.bindValue(":matiere", matiere);
-    query.bindValue(":etat_p", etat_p);
-    query.bindValue(":prix", prix);
-    return query.exec();
+    /*QString t,e,m;
+        int pro,pri ;
+       pro=p.getproduit_id();
+       t=p.gettype();
+       e=p.getetat_p();
+       pri=p.getprix();
+        m=p.getmatiere();
+     QString sQuery="UPDATE produit SET produit_id='"+pro+"',type='"+t+"',matiere='"+m+"', etat_p='"+e+"',prix='"+pri+"' where produit_id= (select produit_id from produit where produit_id='"+pro+"'or type='"+t+"'or matiere='"+m+"'or etat_p='"+e+"' or prix='"+pri+"' )";
+
+
+
+
+       QSqlQuery qry;
+
+       qry.prepare(sQuery);
+       */
+      QSqlQuery query;
+       query.prepare("UPDATE produit SET produit_id= :produit_id, type= :type,matiere= :matiere, etat_p= :etat_p,prix= :prix where produit_id= :produit_id ");
+       query.bindValue(":produit_id", produit_id);
+       query.bindValue(":type", type);
+       query.bindValue(":matiere", matiere);
+       query.bindValue(":etat_p", etat_p);
+       query.bindValue(":prix", prix);
+       return query.exec();
+
 }
 
 QSqlQueryModel *produit::afficher()
@@ -45,20 +58,33 @@ QSqlQueryModel *produit::afficher()
     model->setQuery("SELECT * FROM produit order by produit_id ASC");
     return model;
 }
-
+/*
 bool  produit::supprimer()
 {  QSqlQuery query;
     QString id_string=QString:: number(produit_id);
     query.prepare("Delete from produit where produit_id=:produit_id");
     query.bindValue(":produit_id", produit_id);
     return query.exec();
+}*/
+bool produit::supprimer(int produit_id)
+{
+  /*  QSqlQuery query;
+    QString res=QString::number(id_e);
+    query.prepare("Delete from Employee where id_e= : ID_E");
+    query.bindValue(":ID_E",res);
+    return query.exec();*/
+
+    QSqlQuery qry;
+       qry.prepare("Delete from produit where produit_id = :produit_id");
+       qry.bindValue(":produit_id",produit_id);
+       return qry.exec();
 }
 
 QSqlQueryModel *produit::rechercher(QString rech)
 {
     QSqlQueryModel * model= new QSqlQueryModel();
 
-        model->setQuery("select * from produit where produit_id LIKE ('%"+rech+"%') or type LIKE ('%"+rech+"%') or etat_p LIKE ('%"+rech+"%') or prix LIKE ('%"+rech+"%')");
+        model->setQuery("select * from produit where produit_id LIKE ('%"+rech+"%') or type LIKE ('%"+rech+"%') ");
 
 
 
