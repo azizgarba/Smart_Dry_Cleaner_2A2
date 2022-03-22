@@ -206,7 +206,7 @@ void MainWindow2::on_pushButton_ajouter_released()
 
 void MainWindow2::on_pushButton_modif_pressed()
 {
-    ui->pushButton_ajouter->setStyleSheet("QPushButton{background-color: rgb(0, 89, 193)}");
+    ui->pushButton_modif->setStyleSheet("QPushButton{background-color: rgb(0, 89, 193)}");
 }
 
 void MainWindow2::on_pushButton_modif_released()
@@ -216,53 +216,52 @@ void MainWindow2::on_pushButton_modif_released()
 
 void MainWindow2::on_pushButton_qr_pressed()
 {
-    ui->pushButton_ajouter->setStyleSheet("QPushButton{background-color: rgb(0, 89, 193)}");
+    ui->pushButton_qr->setStyleSheet("QPushButton{background-color: rgb(0, 89, 193)}");
 }
 
 void MainWindow2::on_pushButton_qr_released()
 {
-    ui->pushButton_ajouter->setStyleSheet("QPushButton{background-color: rgb(0, 129, 233)}");
+    ui->pushButton_qr->setStyleSheet("QPushButton{background-color: rgb(0, 129, 233)}");
 }
 
 void MainWindow2::on_pushButton_supp_pressed()
 {
-    ui->pushButton_ajouter->setStyleSheet("QPushButton{background-color: rgb(0, 89, 193)}");
+    ui->pushButton_supp->setStyleSheet("QPushButton{background-color: rgb(0, 89, 193)}");
 }
 
 void MainWindow2::on_pushButton_supp_released()
 {
-    ui->pushButton_ajouter->setStyleSheet("QPushButton{background-color: rgb(0, 129, 233)}");
+    ui->pushButton_supp->setStyleSheet("QPushButton{background-color: rgb(0, 129, 233)}");
 }
 
 void MainWindow2::on_pushButton_excel_pressed()
 {
-    ui->pushButton_ajouter->setStyleSheet("QPushButton{background-color: rgb(0, 89, 193)}");
+    ui->pushButton_excel->setStyleSheet("QPushButton{background-color: rgb(0, 89, 193)}");
 }
 
 void MainWindow2::on_pushButton_excel_released()
 {
-    ui->pushButton_ajouter->setStyleSheet("QPushButton{background-color: rgb(0, 129, 233)}");
+    ui->pushButton_excel->setStyleSheet("QPushButton{background-color: rgb(0, 129, 233)}");
 }
 
 void MainWindow2::on_pushButton_chat_pressed()
 {
-    ui->pushButton_ajouter->setStyleSheet("QPushButton{background-color: rgb(0, 89, 193)}");
+    ui->pushButton_chat->setStyleSheet("QPushButton{background-color: rgb(0, 89, 193)}");
 }
 
 void MainWindow2::on_pushButton_chat_released()
 {
-    ui->pushButton_ajouter->setStyleSheet("QPushButton{background-color: rgb(0, 129, 233)}");
+    ui->pushButton_chat->setStyleSheet("QPushButton{background-color: rgb(0, 129, 233)}");
 }
 
 void MainWindow2::on_pushButton_trier_pressed()
 {
-    ui->pushButton_ajouter->setStyleSheet("QPushButton{background-color: rgb(0, 89, 193)}");
+    ui->pushButton_trier->setStyleSheet("QPushButton{background-color: rgb(0, 89, 193)}");
 }
 
 void MainWindow2::on_pushButton_trier_released()
 {
-    ui->pushButton_ajouter->setStyleSheet("QPushButton{background-color: rgb(0, 129, 233)}");
-
+    ui->pushButton_trier->setStyleSheet("QPushButton{background-color: rgb(0, 129, 233)}");
 }
 
 
