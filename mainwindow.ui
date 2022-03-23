@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>474</width>
-    <height>303</height>
+    <width>465</width>
+    <height>308</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,6 +35,10 @@ background-image:url(C:\Users\ASUS\Downloads\background.png);}</string>
      <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
+     <property name="styleSheet">
+      <string notr="true">#tab{
+background-image:url(C:\Users\ASUS\Downloads\background.png);}</string>
+     </property>
      <attribute name="title">
       <string>Tab 1</string>
      </attribute>
@@ -170,7 +174,7 @@ border-radius:10px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>474</width>
+     <width>465</width>
      <height>22</height>
     </rect>
    </property>

@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "employee.h"
+#include "dialog.h"
 
 namespace Ui {
 class MainWindow2;
@@ -59,9 +60,15 @@ private slots:
 
     void on_pushButton_trier_released();
 
+    void on_pushButton_chat_clicked();
+
+public slots:
+    void openDialog();
+
 private:
     Ui::MainWindow2 *ui;
     Employee etmp;
+    Dialog *Dialog;
 };
 
 #endif // MAINWINDOW2_H

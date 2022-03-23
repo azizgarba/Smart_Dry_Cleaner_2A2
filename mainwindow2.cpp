@@ -38,6 +38,8 @@ MainWindow2::MainWindow2(QWidget *parent) :
     ui->lineEdit_prenom->setValidator(validator);
     ui->lineEdit_num->setValidator(new QIntValidator(0,99999999,this));
     ui->lineEdit_adr->setValidator(validator);
+
+       connect(ui->pushButton_chat, SIGNAL(click()), this, SLOT(openDialog()));
 }
 
 MainWindow2::~MainWindow2()
@@ -201,7 +203,7 @@ void MainWindow2::on_pushButton_ajouter_pressed()
 
 void MainWindow2::on_pushButton_ajouter_released()
 {
-    ui->pushButton_ajouter->setStyleSheet("QPushButton{background-color: rgb(0, 129, 233)}");
+    ui->pushButton_ajouter->setStyleSheet("QPushButton{background-color: rgb(169, 223, 247)}");
 }
 
 void MainWindow2::on_pushButton_modif_pressed()
@@ -211,7 +213,7 @@ void MainWindow2::on_pushButton_modif_pressed()
 
 void MainWindow2::on_pushButton_modif_released()
 {
-    ui->pushButton_ajouter->setStyleSheet("QPushButton{background-color: rgb(0, 129, 233)}");
+    ui->pushButton_ajouter->setStyleSheet("QPushButton{background-color: rgb(169, 223, 247)}");
 }
 
 void MainWindow2::on_pushButton_qr_pressed()
@@ -221,7 +223,7 @@ void MainWindow2::on_pushButton_qr_pressed()
 
 void MainWindow2::on_pushButton_qr_released()
 {
-    ui->pushButton_qr->setStyleSheet("QPushButton{background-color: rgb(0, 129, 233)}");
+    ui->pushButton_qr->setStyleSheet("QPushButton{background-color: rgb(169, 223, 247)}");
 }
 
 void MainWindow2::on_pushButton_supp_pressed()
@@ -231,7 +233,7 @@ void MainWindow2::on_pushButton_supp_pressed()
 
 void MainWindow2::on_pushButton_supp_released()
 {
-    ui->pushButton_supp->setStyleSheet("QPushButton{background-color: rgb(0, 129, 233)}");
+    ui->pushButton_supp->setStyleSheet("QPushButton{background-color: rgb(169, 223, 247)}");
 }
 
 void MainWindow2::on_pushButton_excel_pressed()
@@ -241,7 +243,7 @@ void MainWindow2::on_pushButton_excel_pressed()
 
 void MainWindow2::on_pushButton_excel_released()
 {
-    ui->pushButton_excel->setStyleSheet("QPushButton{background-color: rgb(0, 129, 233)}");
+    ui->pushButton_excel->setStyleSheet("QPushButton{background-color: rgb(169, 223, 247)}");
 }
 
 void MainWindow2::on_pushButton_chat_pressed()
@@ -251,7 +253,7 @@ void MainWindow2::on_pushButton_chat_pressed()
 
 void MainWindow2::on_pushButton_chat_released()
 {
-    ui->pushButton_chat->setStyleSheet("QPushButton{background-color: rgb(0, 129, 233)}");
+    ui->pushButton_chat->setStyleSheet("QPushButton{background-color: rgb(169, 223, 247)}");
 }
 
 void MainWindow2::on_pushButton_trier_pressed()
@@ -261,7 +263,18 @@ void MainWindow2::on_pushButton_trier_pressed()
 
 void MainWindow2::on_pushButton_trier_released()
 {
-    ui->pushButton_trier->setStyleSheet("QPushButton{background-color: rgb(0, 129, 233)}");
+    ui->pushButton_trier->setStyleSheet("QPushButton{background-color: rgb(169, 223, 247)}");
+  //  ui->pushButton_trier->setStyleSheet("QPushButton{border-radius:10px}");
 }
 
+void MainWindow2::openDialog()
+{
+    class Dialog dialog;
+    dialog.setModal(true);
+    dialog.exec();
+}
 
+void MainWindow2::on_pushButton_chat_clicked()
+{
+    openDialog();
+}

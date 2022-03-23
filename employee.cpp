@@ -127,6 +127,12 @@ QSqlQueryModel *Employee::trier_nom(){
     QSqlQuery *qry=new QSqlQuery();
     QSqlQueryModel *model=new QSqlQueryModel();
     qry->prepare("select * from EMPLOYEE order by NOM_E ASC");
+    model->setQuery("select * from EMPLOYEE ORDER BY NOM_E ASC ");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Numero"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Adresse"));
     qry->exec();
     model->setQuery(*qry);
     return model;
@@ -135,6 +141,12 @@ QSqlQueryModel *Employee::trier_prenom(){
     QSqlQuery *qry=new QSqlQuery();
     QSqlQueryModel *model=new QSqlQueryModel();
     qry->prepare("select * from EMPLOYEE order by PRENOM_E ASC");
+    model->setQuery("select * from EMPLOYEE ORDER BY PRENOM_E ASC ");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Numero"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Adresse"));
     qry->exec();
     model->setQuery(*qry);
     return model;
@@ -143,6 +155,12 @@ QSqlQueryModel *Employee::trier_adresse(){
     QSqlQuery *qry=new QSqlQuery();
     QSqlQueryModel *model=new QSqlQueryModel();
     qry->prepare("select * from EMPLOYEE order by ADRESSE_E ASC");
+    model->setQuery("select * from EMPLOYEE ORDER BY ADRESSE_E ASC ");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Numero"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Adresse"));
     qry->exec();
     model->setQuery(*qry);
     return model;

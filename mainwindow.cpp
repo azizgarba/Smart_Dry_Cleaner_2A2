@@ -4,7 +4,6 @@
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 #include <QSqlQuery>
-#include "dialog.h"
 #include "mainwindow2.h"
 
 MainWindow::MainWindow(QWidget *parent)
