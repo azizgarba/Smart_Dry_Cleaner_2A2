@@ -13,7 +13,6 @@ using std::uint8_t;
 using std::size_t;
 using std::vector;
 
-
 namespace qrcodegen {
 
 QrSegment::Mode::Mode(int mode, int cc0, int cc1, int cc2) :

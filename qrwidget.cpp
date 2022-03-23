@@ -9,16 +9,13 @@ using qrcodegen::QrSegment;
 qrwidget::qrwidget(QWidget *parent) :
     QWidget(parent),
     data("Hello QR")//Note: The encoding fails with empty string so I just default to something else. Use the setQRData() call to change this.
-{
-}
+{}
 
 void qrwidget::paintEvent(QPaintEvent *pe){
     qDebug() <<"hewo";
 
     QPainter painter(this);
     //NOTE: I have hardcoded some parameters here that would make more sense as variables.
-
-
 
 
     qrcodegen::QrCode qr = qrcodegen::QrCode::encodeText(data.toStdString().c_str(), qrcodegen::QrCode::Ecc::LOW);
@@ -42,5 +39,4 @@ void qrwidget::paintEvent(QPaintEvent *pe){
             }
         }
     }
-
 }
