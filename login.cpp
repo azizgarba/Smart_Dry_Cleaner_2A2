@@ -12,3 +12,5 @@ login::login(QString log, QString mdps)
     this->log=log;
     this->mdps=mdps;
 }
+
+
