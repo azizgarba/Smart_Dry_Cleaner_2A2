@@ -28,7 +28,7 @@ background-image:url(C:\Users\ASUS\Downloads\background.png);}</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">#gtabWidget{
+     <string notr="true">#tabWidget{
 background-image:url(C:\Users\ASUS\Downloads\background.png);}</string>
     </property>
     <property name="currentIndex">

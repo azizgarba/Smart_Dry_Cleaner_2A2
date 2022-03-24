@@ -13,27 +13,47 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <property name="styleSheet">
+   <string notr="true">#tabWidget{
+background-image:url(C:\Users\ASUS\Downloads\background.png);}</string>
+  </property>
+  <widget class="QPushButton" name="chat">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>170</y>
+     <x>310</x>
+     <y>270</y>
      <width>75</width>
      <height>23</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(169, 223, 247);
+color:rgb(0,0,0);
+border-radius:10px;</string>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>Envoyer</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>70</y>
-     <width>113</width>
+     <x>10</x>
+     <y>270</y>
+     <width>291</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(169, 223, 247);
+color:rgb(0,0,0);
+border-radius:10px;</string>
    </property>
   </widget>
  </widget>
