@@ -28,7 +28,7 @@ background-image:url(C:\Users\ASUS\Downloads\background.png);}</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">#tabWidget{
+     <string notr="true">#gtabWidget{
 background-image:url(C:\Users\ASUS\Downloads\background.png);}</string>
     </property>
     <property name="currentIndex">
@@ -50,6 +50,10 @@ background-image:url(C:\Users\ASUS\Downloads\background.png);}</string>
         <width>271</width>
         <height>201</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#tab{
+background-image:url(C:\Users\ASUS\Downloads\background.png);}</string>
       </property>
       <property name="title">
        <string>Sign in</string>
