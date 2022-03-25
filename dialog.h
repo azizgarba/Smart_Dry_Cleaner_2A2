@@ -3,10 +3,13 @@
 #define DIALOG_H
 
 #include <QDialog>
+#include <QWidget>
 
 namespace Ui {
 class Dialog;
 }
+
+class QTcpSocket;
 
 class Dialog : public QDialog
 {
@@ -16,13 +19,10 @@ public:
     explicit Dialog(QWidget *parent = nullptr);
     ~Dialog();
 
-private slots:
-    void on_chat_pressed();
-
-    void on_chat_released();
 
 private:
     Ui::Dialog *ui;
+    QTcpSocket *mSocket;
 };
 
 #endif // DIALOG_H
