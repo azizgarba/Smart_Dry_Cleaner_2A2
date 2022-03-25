@@ -16,6 +16,11 @@ public:
     explicit Dialog(QWidget *parent = nullptr);
     ~Dialog();
 
+private slots:
+    void on_chat_pressed();
+
+    void on_chat_released();
+
 private:
     Ui::Dialog *ui;
 };

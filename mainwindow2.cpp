@@ -264,7 +264,6 @@ void MainWindow2::on_pushButton_trier_pressed()
 void MainWindow2::on_pushButton_trier_released()
 {
     ui->pushButton_trier->setStyleSheet("QPushButton{background-color: rgb(169, 223, 247)}");
-  //  ui->pushButton_trier->setStyleSheet("QPushButton{border-radius:10px}");
 }
 
 void MainWindow2::openDialog()
