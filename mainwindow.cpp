@@ -113,6 +113,7 @@ void MainWindow::on_pushButton_6_clicked()
          notifyIcon->show();
          notifyIcon->showMessage("Gestion d'un produit","Un produit a été supprimée",QSystemTrayIcon::Information,15000);
 
+
          p.modifier() ;
 
          ui->treeView->setModel(pr.afficher());
@@ -228,28 +229,5 @@ void MainWindow::on_treeView_2_activated(const QModelIndex &index)
 
 void MainWindow::on_pushButton_9_clicked()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
-                                                              tr("Excel Files (*.xls)"));
-              if (fileName.isEmpty())
-                  return;
 
-              ExportExcel obj(fileName, "mydata", ui->treeView);
-
-              //colums to export
-              obj.addField(0, "ID", "char(20)");
-              obj.addField(1, "Nom", "char(20)");
-              obj.addField(2, "¨Prenom", "char(20)");
-              obj.addField(3, "Nnumero", "char(20)");
-              obj.addField(4, "Adresse", "char(20)");
-
-
-
-
-              int retVal = obj.export2Excel();
-              if( retVal > 0)
-              {
-                  QMessageBox::information(this, tr("Done"),
-                                           QString(tr("%1 records exported!")).arg(retVal)
-                                           );
-              }
 }
