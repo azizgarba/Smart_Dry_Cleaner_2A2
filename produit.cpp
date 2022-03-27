@@ -1,10 +1,12 @@
 #include "produit.h"
+#include "mainwindow.h"
 #include<QSqlQuery>
 #include<QtDebug>
 #include<qobject.h>
 #include <QComboBox>
 #include <QApplication>
 #include <QtCore>
+#include <QSystemTrayIcon>
 #include <QSystemTrayIcon>
 #include<QMessageBox>
 produit::produit()
@@ -25,22 +27,7 @@ bool produit::ajouter()
 }
 bool produit::modifier()
 {
-    /*QString t,e,m;
-        int pro,pri ;
-       pro=p.getproduit_id();
-       t=p.gettype();
-       e=p.getetat_p();
-       pri=p.getprix();
-        m=p.getmatiere();
-     QString sQuery="UPDATE produit SET produit_id='"+pro+"',type='"+t+"',matiere='"+m+"', etat_p='"+e+"',prix='"+pri+"' where produit_id= (select produit_id from produit where produit_id='"+pro+"'or type='"+t+"'or matiere='"+m+"'or etat_p='"+e+"' or prix='"+pri+"' )";
 
-
-
-
-       QSqlQuery qry;
-
-       qry.prepare(sQuery);
-       */
       QSqlQuery query;
        query.prepare("UPDATE produit SET produit_id= :produit_id, type= :type,matiere= :matiere, etat_p= :etat_p,prix= :prix where produit_id= :produit_id ");
        query.bindValue(":produit_id", produit_id);
@@ -54,9 +41,14 @@ bool produit::modifier()
 
 QSqlQueryModel *produit::afficher()
 {
+    produit p ;
     QSqlQueryModel *model= new QSqlQueryModel();
     model->setQuery("SELECT * FROM produit order by produit_id ASC");
+
+
     return model;
+
+
 }
 /*
 bool  produit::supprimer()
@@ -91,6 +83,15 @@ QSqlQueryModel *produit::rechercher(QString rech)
     return model;
 
 }
+QSqlQueryModel *produit::recherche()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+     model->setQuery("select etat_p from produit where etat_p LIKE 'finie' ");
+
+    return model;
+}
+
 QSqlQueryModel *produit::trier_produit_id(){
     QSqlQuery *qry=new QSqlQuery();
     QSqlQueryModel *model=new QSqlQueryModel();
@@ -99,6 +100,7 @@ QSqlQueryModel *produit::trier_produit_id(){
     model->setQuery(*qry);
     return model;
 }
+
 
 QSqlQueryModel *produit::trier_etat_p(){
     QSqlQuery *qry=new QSqlQuery();
@@ -116,3 +118,16 @@ QSqlQueryModel *produit::trier_prix(){
     model->setQuery(*qry);
     return model;
 }
+
+
+
+    void produit::notif_ajout()
+    {
+         if (etat_p=="finie")
+                {
+        QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+        notifyIcon->setIcon(QIcon(":/hydro.png.png"));
+        notifyIcon->show();
+        notifyIcon->showMessage("Gestion d'Une matiere premiere","Une matiere premiere a été ajouter",QSystemTrayIcon::Information,15000);
+}
+    }

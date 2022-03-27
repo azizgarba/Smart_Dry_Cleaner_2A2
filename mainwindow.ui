@@ -743,6 +743,19 @@ height: 8000px;</string>
        <string>prix</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_10">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>250</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>OK</string>
+      </property>
+     </widget>
      <zorder>textBrowser_19</zorder>
      <zorder>pushButton_7</zorder>
      <zorder>lineEdit_7</zorder>
@@ -756,6 +769,7 @@ height: 8000px;</string>
      <zorder>pushButton_8</zorder>
      <zorder>radioButton_2</zorder>
      <zorder>radioButton_3</zorder>
+     <zorder>pushButton_10</zorder>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">

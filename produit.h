@@ -17,11 +17,12 @@ class produit
  int produit_id ;
  QString type ;
  QString matiere;
- QString etat_p ;
+  QString etat_p ;
  int prix ;
 
 
 public:
+
       produit();
       produit(int produit_id, QString type ,QString matiere,QString etat_p,int prix)
       {
@@ -38,7 +39,7 @@ public:
              int getproduit_id(){return produit_id;};
              QString gettype(){return type;};
              QString getmatiere() { return matiere; };
-             QString getetat_p() { return etat_p; };
+            QString getetat_p() { return etat_p; };
              int getprix() { return prix; };
 
 
@@ -46,7 +47,7 @@ public:
              void setproduit_id(int id){produit_id=id;}
              void settype(QString t){type=t;}
              void setmatiere(QString m) { matiere=m; }
-             void setetat_p(QString e) { etat_p = e; }
+            void setetat_p(QString e) { etat_p = e; }
              void setprix(int p) { prix = p; }
 
 
@@ -56,10 +57,13 @@ public:
              QSqlQueryModel *afficher();
              bool supprimer(int produit_id);
             // void genererPDFact() ;
+
+            void notif_ajout() ;
              QSqlQueryModel * rechercher(QString);
              QSqlQueryModel * trier_produit_id();
              QSqlQueryModel * trier_etat_p();
              QSqlQueryModel * trier_prix();
+             QSqlQueryModel * recherche() ;
 
 
 };

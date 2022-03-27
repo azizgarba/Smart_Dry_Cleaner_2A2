@@ -1,49 +1,61 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "produit.h"
+#include "excel.h"
 #include "offre.h"
+#include <QSystemTrayIcon>
+#include <QMessageBox>
+#include <QDebug>
+#include <QIntValidator>
+#include<QWidget>
+#include <QTextDocument>
+#include <QTextEdit>
+#include <fstream>
+#include <QTextStream>
+#include <QRadioButton>
+#include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-
-       //produit
     ui->setupUi(this);
-    ui->lineEdit_7->setPlaceholderText("  Chercher(Id-Type)...");
-        QRegularExpression QRegExp( "[a-zA-Z]+");
-        QRegularExpressionValidator *validator = new QRegularExpressionValidator(QRegExp,this);
-        ui->lineEdit_2->setValidator(validator);
-        ui->lineEdit_3->setValidator(validator);
-        ui->lineEdit_5->setValidator(validator);
-        ui->lineEdit->setValidator(new QIntValidator(0,9999,this));
-        ui->lineEdit_4->setValidator(new QIntValidator(0,9999999,this));
-        //------------------
-        ui->lineEdit_8->setValidator(new QIntValidator(0,9999,this));
-        ui->lineEdit_9->setValidator(validator);
-          ui->lineEdit_10->setValidator(new QIntValidator(0,9999999,this));
 
 
 
-    ui->treeView->setModel(pr.afficher());
-    ui->treeView->setSelectionBehavior(QAbstractItemView::SelectRows);
-    ui->treeView->setSelectionMode(QAbstractItemView::SingleSelection);
-                //offre
-            ui->treeView_2->setModel(of.afficherOffre());
-            ui->treeView_2->setSelectionBehavior(QAbstractItemView::SelectRows);
-            ui->treeView_2->setSelectionMode(QAbstractItemView::SingleSelection);
+/**************/
+      ui->lineEdit_7->setPlaceholderText("  Chercher(Id-Type)...");
+          QRegularExpression QRegExp( "[a-zA-Z]+");
+          QRegularExpressionValidator *validator = new QRegularExpressionValidator(QRegExp,this);
+          ui->lineEdit_2->setValidator(validator);
+          ui->lineEdit_3->setValidator(validator);
+          ui->lineEdit_5->setValidator(validator);
+          ui->lineEdit->setValidator(new QIntValidator(0,9999,this));
+          ui->lineEdit_4->setValidator(new QIntValidator(0,9999999,this));
+          //------------------
+          ui->lineEdit_8->setValidator(new QIntValidator(0,9999,this));
+          ui->lineEdit_9->setValidator(validator);
+            ui->lineEdit_10->setValidator(new QIntValidator(0,9999999,this));
+
+      ui->treeView->setModel(pr.afficher());
+      ui->treeView->setSelectionBehavior(QAbstractItemView::SelectRows);
+      ui->treeView->setSelectionMode(QAbstractItemView::SingleSelection);
+                  //offre
+              ui->treeView_2->setModel(of.afficherOffre());
+              ui->treeView_2->setSelectionBehavior(QAbstractItemView::SelectRows);
+              ui->treeView_2->setSelectionMode(QAbstractItemView::SingleSelection);
 
 
 
 
 }
+
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
-//------------------produit-------------------------
 void MainWindow::on_pushButton_2_clicked()
 {
 
@@ -56,18 +68,31 @@ void MainWindow::on_pushButton_2_clicked()
 
    produit p(produit_id, type, matiere, etat_p, prix);
     p.ajouter() ;
-    ui->treeView->setModel(pr.afficher());
-}
 
+    QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+    notifyIcon->setIcon(QIcon(":/hydro.png"));
+    notifyIcon->show();
+    notifyIcon->showMessage("Gestion d'un produit","Un produit a été ajoutée",QSystemTrayIcon::Information,15000);
+
+
+
+    ui->treeView->setModel(pr.afficher());
+
+
+}
 void MainWindow::on_pushButton_7_clicked()
 {
-    QItemSelectionModel *select = ui->treeView->selectionModel();
+                 QItemSelectionModel *select = ui->treeView->selectionModel();
                    int produit_id =select->selectedRows().value(0).data().toInt();
                    if(pr.supprimer(produit_id))
                    {
                        ui->treeView->setModel(pr.afficher());
 
                    }
+                   QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+                   notifyIcon->setIcon(QIcon(":/hydro.png"));
+                   notifyIcon->show();
+                   notifyIcon->showMessage("Gestion d'un produit","Un produit a été supprimée",QSystemTrayIcon::Information,15000);
 
 
 }
@@ -83,11 +108,16 @@ void MainWindow::on_pushButton_6_clicked()
 
 
          produit p (d, t, m, e, prr);
+         QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+         notifyIcon->setIcon(QIcon(":/hydro.png"));
+         notifyIcon->show();
+         notifyIcon->showMessage("Gestion d'un produit","Un produit a été supprimée",QSystemTrayIcon::Information,15000);
+
          p.modifier() ;
+
          ui->treeView->setModel(pr.afficher());
 
 }
-//--------------------------------offre
 void MainWindow::on_pushButton_clicked()
 {
     int offre_id=ui->lineEdit_8->text().toInt();
@@ -122,6 +152,7 @@ void MainWindow::on_pushButton_3_clicked()
 
 
     offre o(offre_id,reduction,type_p);
+
     o.modifierOffre() ;
     ui->treeView_2->setModel(of.afficherOffre());
 
@@ -195,6 +226,30 @@ void MainWindow::on_treeView_2_activated(const QModelIndex &index)
 
 
 
+void MainWindow::on_pushButton_9_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
+                                                              tr("Excel Files (*.xls)"));
+              if (fileName.isEmpty())
+                  return;
+
+              ExportExcel obj(fileName, "mydata", ui->treeView);
+
+              //colums to export
+              obj.addField(0, "ID", "char(20)");
+              obj.addField(1, "Nom", "char(20)");
+              obj.addField(2, "¨Prenom", "char(20)");
+              obj.addField(3, "Nnumero", "char(20)");
+              obj.addField(4, "Adresse", "char(20)");
 
 
 
+
+              int retVal = obj.export2Excel();
+              if( retVal > 0)
+              {
+                  QMessageBox::information(this, tr("Done"),
+                                           QString(tr("%1 records exported!")).arg(retVal)
+                                           );
+              }
+}

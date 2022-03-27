@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 #include "produit.h"
 #include"offre.h"
+
 #include <QMainWindow>
 #include <QItemSelectionModel>
 #include <QStandardItemModel>
@@ -16,6 +17,9 @@
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
+class QSystemTrayIcon ;
+
+
 
 class MainWindow : public QMainWindow
 {
@@ -26,6 +30,8 @@ public:
     ~MainWindow();
 
 private slots:
+    void changeTexte1();
+    void changeTexte2();
     void on_pushButton_pressed();
 
     void on_pushButton_released();
@@ -65,6 +71,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
     produit pr ;
+
     offre of ;
+//  QSystemTrayIcon *sticon ;
+ QSystemTrayIcon *mSystemTrayIcon ;
 };
 #endif // MAINWINDOW_H

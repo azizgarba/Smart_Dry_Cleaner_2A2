@@ -4,10 +4,13 @@
 #include "connection.h"
 int main(int argc, char *argv[])
 {
+   // produit p ;
     QApplication a(argc, argv);
     MainWindow w;
     Connection c;
     bool test=c.createconnect();
+
+
     if(test)
     {w.show();
         QMessageBox::information(nullptr, QObject::tr("database is open"),
