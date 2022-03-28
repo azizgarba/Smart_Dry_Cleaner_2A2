@@ -3,7 +3,6 @@
 #define DIALOG_H
 
 #include <QDialog>
-#include <QWidget>
 
 namespace Ui {
 class Dialog;
@@ -19,6 +18,9 @@ public:
     explicit Dialog(QWidget *parent = nullptr);
     ~Dialog();
 
+
+private slots:
+    void on_envoyer_clicked();
 
 private:
     Ui::Dialog *ui;
