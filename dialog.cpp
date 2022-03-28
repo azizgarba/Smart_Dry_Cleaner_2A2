@@ -19,14 +19,12 @@ Dialog::~Dialog()
     delete ui;
 }
 
-
 void Dialog::on_envoyer_clicked()
 {
     QTextStream T(mSocket);
     T << ui->nom->text() << ":  " << ui->msg->text();
     mSocket->flush();
     ui->msg->clear();
-
 }
 
 
