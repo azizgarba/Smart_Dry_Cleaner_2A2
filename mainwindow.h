@@ -36,6 +36,16 @@ private slots:
 
     void on_pb_tri_activated(const QString &arg1);
 
+    void on_recherche_textChanged(const QString &arg1);
+
+    void on_pushButton_4_clicked();
+
+    void on_pdf_aff_clicked();
+
+    void on_traduire_clicked();
+
+    void on_le_aff_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     Fournisseur ftmp;

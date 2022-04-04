@@ -37,7 +37,7 @@ public:
       QSqlQueryModel * afficher_fournis_par_nom();
       QSqlQueryModel * afficher_fournis_par_achat();
       QSqlQueryModel * afficher_fournis_par_date();
-
+      QSqlQueryModel * chercher(QString rech);
 
 
 

@@ -163,3 +163,17 @@ QSqlQueryModel* Fournisseur::afficher_fournis_par_date()
 
 }
 
+ QSqlQueryModel * Fournisseur::chercher(QString rech)
+ {
+     QString sQuery="SELECT* FROM FOURNISSEURS WHERE FOURNIS_ID LIKE '%"+rech+"%' or NOM_F LIKE '%"+rech+"%'";
+
+     QSqlQueryModel *model4=new QSqlQueryModel();
+     QSqlQuery qry;
+     qry.prepare(sQuery);
+     qry.exec();
+     model4->setQuery(qry);
+     return model4;
+
+
+
+ }
