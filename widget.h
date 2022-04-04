@@ -3,11 +3,10 @@
 
 #include <QWidget>
 
-QT_BEGIN_NAMESPACE
 namespace Ui {
 class widget;
 }
-QT_END_NAMESPACE
+
 
 class QTcpSocket;
 namespace DuarteCorporation{
