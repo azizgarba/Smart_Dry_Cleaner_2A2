@@ -23,7 +23,6 @@
 #include <QtPrintSupport/QAbstractPrintDialog>
 #include<QDirModel>
 #include <QtPrintSupport/QPrintDialog>
-#include "dialog.h"
 
 MainWindow2::MainWindow2(QWidget *parent) :
     QMainWindow(parent),
@@ -269,12 +268,12 @@ void MainWindow2::on_pushButton_trier_released()
 
 void MainWindow2::openDialog()
 {
-    class Dialog dialog;
+    /*class Dialog dialog;
     dialog.setModal(true);
-    dialog.exec();
+    dialog.exec();*/
 }
 
 void MainWindow2::on_pushButton_chat_clicked()
 {
-    openDialog();
+  //  openDialog();
 }

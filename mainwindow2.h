@@ -3,8 +3,7 @@
 
 #include <QMainWindow>
 #include "employee.h"
-#include "dialog.h"
-#include "widget.h"
+
 
 namespace Ui {
 class MainWindow2;
@@ -69,7 +68,7 @@ public slots:
 private:
     Ui::MainWindow2 *ui;
     Employee etmp;
-    Dialog *Dialog;
+    //Dialog *Dialog;
 };
 
 #endif // MAINWINDOW2_H

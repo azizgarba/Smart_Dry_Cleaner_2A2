@@ -6,13 +6,9 @@ int main(int argc, char *argv[])
 {
 
     QApplication a(argc, argv);
-    a.setStyle("fusion");
-    Dialog w;
-    w.show();
-    return a.exec();
     Connection c;
     bool test=c.createconnect();
-    MainWindow ww;
+    MainWindow w;
     if(test)
     {w.show();
         QMessageBox::critical(nullptr, QObject::tr("database is open"),
