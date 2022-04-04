@@ -40,6 +40,8 @@ public:
     float nbr_fidelite(float prix);
     float nbr_fidelite0();
     void nbr_fidelite2(float prix,QString nom);
+    QString coupon_generator() const;
+    void decre_pts_fidelite(QString nom);
     Client();
 };
 

@@ -7,6 +7,7 @@
 #include<QDesktopServices>
 #include<QUrl>
 #include<QDateTime>
+#include"smtp.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -106,14 +107,20 @@ ui->pushButton_5->setStyleSheet("QPushButton{ background-color: rgb(0, 129, 233)
 //ajouter client buttton clicked
 void MainWindow::on_pushButton_clicked()
 {
+QRegularExpression QRegExp2("[a-zA-Z0-9]+@[a-zA-Z]+.[a-zA-Z]+");
 Client c;
+QString mail;
+c.set_email(ui->lineEdit_email->text());
+mail=c.get_email();
+if(mail.contains(QRegExp2)){
 c.set_cin(ui->lineEdit_cin->text());
 c.set_nom(ui->lineEdit_nom->text());
 c.set_prenom(ui->lineEdit_prenom->text());
 c.set_adresse(ui->lineEdit_adresse->text());
 c.set_num_tel(ui->lineEdit_num_tel->text());
-c.set_email(ui->lineEdit_email->text());
+//c.set_email(ui->lineEdit_email->text());
 c.set_age(ui->lineEdit_age->text());
+
 c.ajouter_client(c);
 ui->lineEdit_cin->setText("");
 ui->lineEdit_nom->setText("");
@@ -122,19 +129,28 @@ ui->lineEdit_adresse->setText("");
 ui->lineEdit_num_tel->setText("");
 ui->lineEdit_email->setText("");
 ui->lineEdit_age->setText("");
-ui->tableView->setModel(c.afficher_client());
+ui->tableView->setModel(c.afficher_client());}
+else{
+    QMessageBox::critical(nullptr, QObject::tr("email error"),
+                       QObject::tr("pls enter a valid email.\n"
+                                   "Click Cancel to exit."), QMessageBox::Cancel);
+}
 }
 
 //modifier client button clicked
 void MainWindow::on_pushButton_2_clicked()
 {
+ QRegularExpression QRegExp2("[a-zA-Z0-9]+@[a-zA-Z]+.[a-zA-Z]+");
  Client c;
+ QString mail;
+ c.set_email(ui->lineEdit_email->text());
+ mail=c.get_email();
+ if(mail.contains(QRegExp2)){
  c.set_cin(ui->lineEdit_cin->text());
  c.set_nom(ui->lineEdit_nom->text());
  c.set_prenom(ui->lineEdit_prenom->text());
  c.set_adresse(ui->lineEdit_adresse->text());
  c.set_num_tel(ui->lineEdit_num_tel->text());
- c.set_email(ui->lineEdit_email->text());
  c.set_age(ui->lineEdit_age->text());
  c.modifier_client(c);
  ui->lineEdit_cin->setText("");
@@ -144,7 +160,12 @@ void MainWindow::on_pushButton_2_clicked()
  ui->lineEdit_num_tel->setText("");
  ui->lineEdit_email->setText("");
  ui->lineEdit_age->setText("");
- ui->tableView->setModel(c.afficher_client());
+ ui->tableView->setModel(c.afficher_client());}
+ else{
+     QMessageBox::critical(nullptr, QObject::tr("email error"),
+                        QObject::tr("pls enter a valid email.\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+ }
 }
 
 //supprimer client button clicked
@@ -193,7 +214,15 @@ void MainWindow::on_tableView_activated(const QModelIndex &index)
 
 //send mail to client
 void MainWindow::on_pushButton_5_clicked()
-{
+{   Client c;
+    QString mail;
+    mail=ui->lineEdit_email->text();
+    Smtp* smtp = new Smtp("mohamedaziz.guerbouj@esprit.tn" , "201JMT2698", "smtp.gmail.com",465);
+     connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+    smtp->sendMail("test",mail,"test","hello this is a mail test!!!");
+    QMessageBox::information(nullptr, QObject::tr("SENT"),
+                                 QObject::tr("Email Sent Successfully.\n"
+                                             "Click Cancel to exit."), QMessageBox::Cancel);
 
 }
 
@@ -247,6 +276,8 @@ painter.drawPixmap(QRect(-300,-300,1500,1000),QPixmap("C:/Users/MAG-PC/OneDrive/
 
 painter.end();
 c.nbr_fidelite2(prix,nom);
+QDesktopServices::openUrl(QUrl("file:///D:/Esprit/c++/QT%20exercices/Hydro_Plus_Pdf/pdf_test1.pdf"));
+//c.decre_pts_fidelite(nom);
 }
 
 

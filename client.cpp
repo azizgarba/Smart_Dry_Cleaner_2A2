@@ -227,3 +227,44 @@ void Client::nbr_fidelite2(float prix,QString nom){
     }
 
 }
+//generate random string for coupon(lenght is 8)    !!!!!!!!!!!! to dooooo! !!!!!!!!!!!!!!!!!!!!
+QString Client::coupon_generator() const{
+    const QString possibleCharacters("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789");
+      const int randomStringLength = 8;
+
+      QString randomString;
+      for(int i=0; i<randomStringLength; ++i)
+      {
+          //int index = QRandomGenerator::generate() % possibleCharacters.length();
+          //QChar nextChar = possibleCharacters.at(index);
+          //randomString.append(nextChar);
+      }
+      return randomString;
+}
+//decremente les pts_fidelite apres avoir generer un coupon(PDF)
+/*void Client::decre_pts_fidelite(QString nom){
+    QString sQuery="SELECT PTS_FIDELITE FROM CLIENTS WHERE NOM_C='"+nom+"'";
+    float pts_fidelite = 0;
+    QSqlQuery qry,qry1;
+    qry.prepare(sQuery);
+    if(qry.exec())
+    {
+        while(qry.next()){
+            pts_fidelite = qry.value(0).toFloat();
+        }
+    }
+    pts_fidelite=pts_fidelite-50;
+qDebug("it's me: %f",pts_fidelite);
+    QString pts_fidelite1=QString::number(pts_fidelite);
+    QString sQuery1="UPDATE CLIENTS SET PTS_FIDELITE='"+pts_fidelite1+"' WHERE NOM_C='"+nom+"'";
+    qry1.prepare(sQuery1);
+    if(qry1.exec()){
+        QMessageBox::critical(nullptr, QObject::tr("sql query successful"),
+                           QObject::tr(" successfully.\n"
+                                       "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+    else{
+        QMessageBox::critical(nullptr, QObject::tr("sql query not successful"),
+                           QObject::tr("unsuccessfully.\n"
+                                       "Click Cancel to exit."), QMessageBox::Cancel);}
+}*/
