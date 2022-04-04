@@ -3,6 +3,10 @@
 #define DIALOG_H
 
 #include <QDialog>
+#include <QUdpSocket>
+#include <QtConcurrent/QtConcurrent>
+#include <QFuture>
+#include <QNetworkInterface>
 
 namespace Ui {
 class Dialog;
@@ -24,7 +28,8 @@ private slots:
 
 private:
     Ui::Dialog *ui;
-    QTcpSocket *mSocket;
+    QUdpSocket *clientSocket;
+    QUdpSocket *clientSocketc;
 };
 
 #endif // DIALOG_H

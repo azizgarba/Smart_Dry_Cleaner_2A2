@@ -1,17 +1,19 @@
 //metier chat
 #include "dialog.h"
 #include "ui_dialog.h"
-#include <QTcpSocket>
-#include <QTextStream>
-#include <QLineEdit>
-#include <QTextBrowser>
+
 
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dialog)
 {
-    ui->setupUi(this);
-    mSocket = new QTcpSocket(this);
+    QHostAddress me(get_ip());
+
+      ui->setupUi(this);
+      clientSocket=new QUdpSocket(this);
+      clientSocketc=new QUdpSocket(this);
+      clientSocketc->bind(me, 7000);
+      connect(clientSocketc,SIGNAL(readyRead()),this,SLOT(readPendingDatagrams()));
 }
 
 Dialog::~Dialog()
@@ -21,10 +23,15 @@ Dialog::~Dialog()
 
 void Dialog::on_envoyer_clicked()
 {
-    QTextStream T(mSocket);
-    //T << ui->nom->text() << ":  " << ui->msg->text();
-    mSocket->flush();
-    ui->msg->clear();
+    QString word=ui->msg->text();
+       ui->textBrowser->append(word);
+       QByteArray buffer;
+       buffer.resize(clientSocket->pendingDatagramSize());
+       QHostAddress sender;
+       quint16 senderPort;
+       buffer=word.toUtf8();
+       clientSocketc->writeDatagram(buffer.data(), QHostAddress::Broadcast, 8001 );
+       ui->msg->clear();
 }
 
 
