@@ -21,6 +21,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    chatboxconnectiondialog.cpp \
     connection.cpp \
     employee.cpp \
     exportexcel.cpp \
@@ -31,9 +32,11 @@ SOURCES += \
     qrcode.cpp \
     qrcodegeneratordemo.cpp \
     qrcodegenratorworker.cpp \
-    qrwidget.cpp
+    qrwidget.cpp \
+    widget.cpp
 
 HEADERS += \
+    chatboxconnectiondialog.h \
     connection.h \
     employee.h \
     exportexcel.h \
@@ -42,11 +45,14 @@ HEADERS += \
     mainwindow2.h \
     qrcode.h \
     qrcodegenratorworker.h \
-    qrwidget.h
+    qrwidget.h \
+    widget.h
 
 FORMS += \
+    chatboxconnectiondialog.ui \
     mainwindow.ui \
-    mainwindow2.ui
+    mainwindow2.ui \
+    widget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

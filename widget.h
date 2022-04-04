@@ -4,28 +4,25 @@
 #include <QWidget>
 
 namespace Ui {
-class widget;
+class Widget;
 }
-
-
 class QTcpSocket;
 namespace DuarteCorporation{
-
-class widget : public QWidget
+class Widget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit widget(QWidget *parent = nullptr);
-    ~widget();
+    explicit Widget(QWidget *parent = nullptr);
+    ~Widget();
 
 private slots:
-    void on_send_clicked();
+    void on_pushButton_clicked();
 
-    void on_bind_clicked();
+    void on_pushButton_2_clicked();
 
 private:
-    Ui::widget *ui;
+    Ui::Widget *ui;
     QTcpSocket *nSocket;
 };
 }

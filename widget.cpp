@@ -4,40 +4,38 @@
 #include <QTcpSocket>
 #include <QTextStream>
 
-namespace DuarteCorporation{
-widget::widget(QWidget *parent)
-    : QWidget(parent)
-    , ui(new Ui::widget)
+DuarteCorporation::Widget::Widget(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::Widget)
 {
     ui->setupUi(this);
     nSocket=new QTcpSocket(this);
-    connect(nSocket,&QTcpSocket::readyRead,[&](){
-        QTextStream T(nSocket);
-        auto text=T.readAll();
-        ui->textEdit->append(text);
-    });
+        connect(nSocket,&QTcpSocket::readyRead,[&](){
+            QTextStream T(nSocket);
+            auto text=T.readAll();
+            ui->textEdit->append(text);
+        });
 }
 
-widget::~widget()
+DuarteCorporation::Widget::~Widget()
 {
     delete ui;
 }
 
-
-void DuarteCorporation::widget::on_send_clicked()
+void DuarteCorporation::Widget::on_pushButton_clicked()
 {
     QTextStream T(nSocket);
-    T << ui->lineEdit-> text() << ": " << ui->message->text();
+    T << ui->lineEdit_2-> text() << ": " << ui->lineEdit->text();
     nSocket->flush();
-    ui->message->clear();
+    ui->lineEdit->clear();
 }
 
-void DuarteCorporation::widget::on_bind_clicked()
+void DuarteCorporation::Widget::on_pushButton_2_clicked()
 {
     ChatboxConnectionDialog D(this);
     if(D.exec()==QDialog::Rejected)
     {return;
     }
     nSocket->connectToHost(D.hostname(),D.port());
-    }
 }
+
