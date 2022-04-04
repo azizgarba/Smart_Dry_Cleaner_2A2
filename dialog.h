@@ -25,6 +25,8 @@ public:
 
 private slots:
     void on_envoyer_clicked();
+    void readPendingDatagrams();
+    QString get_ip();
 
 private:
     Ui::Dialog *ui;
