@@ -63,7 +63,5 @@ void Dialog::readPendingDatagrams()
         quint16 senderPort;
         clientSocketc->readDatagram(buffer.data(), buffer.size(),&sender, &senderPort);
         ui->textBrowser->append(buffer.data());
-
     }
-
 }
