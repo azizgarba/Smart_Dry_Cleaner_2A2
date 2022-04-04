@@ -24,14 +24,13 @@ public:
 
 
 private slots:
-    void on_envoyer_clicked();
-    void readPendingDatagrams();
-    QString get_ip();
+    void on_send_clicked();
+
+    void on_bind_clicked();
 
 private:
     Ui::Dialog *ui;
-    QUdpSocket *clientSocket;
-    QUdpSocket *clientSocketc;
+    QTcpSocket *nSocket;
 };
 
 #endif // DIALOG_H

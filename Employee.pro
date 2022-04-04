@@ -2,6 +2,8 @@ QT       += core gui
 QT       += sql
 QT       += svg
 QT       += network
+QT       += core gui network
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -19,6 +21,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    chatboxconnectiondialog.cpp \
     connection.cpp \
     dialog.cpp \
     employee.cpp \
@@ -33,6 +36,7 @@ SOURCES += \
     qrwidget.cpp
 
 HEADERS += \
+    chatboxconnectiondialog.h \
     connection.h \
     dialog.h \
     employee.h \
@@ -45,6 +49,7 @@ HEADERS += \
     qrwidget.h
 
 FORMS += \
+    chatboxconnectiondialog.ui \
     dialog.ui \
     mainwindow.ui \
     mainwindow2.ui

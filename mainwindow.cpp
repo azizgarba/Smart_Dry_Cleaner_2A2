@@ -33,9 +33,6 @@ void MainWindow::on_pushButton_clicked()
           if(count==1){
               ui->label_3->setText("Username and password is correct");
               this->hide();
-              /*Dialog dialog;
-              dialog.setModal(true);
-              dialog.exec();*/
               MainWindow2 *newmain= new MainWindow2();
               newmain->show();
           }

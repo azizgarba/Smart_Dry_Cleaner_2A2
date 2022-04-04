@@ -23,6 +23,7 @@
 #include <QtPrintSupport/QAbstractPrintDialog>
 #include<QDirModel>
 #include <QtPrintSupport/QPrintDialog>
+#include "dialog.h"
 
 MainWindow2::MainWindow2(QWidget *parent) :
     QMainWindow(parent),
