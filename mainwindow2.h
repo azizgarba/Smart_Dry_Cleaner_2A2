@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "employee.h"
 #include "dialog.h"
+#include "widget.h"
 
 namespace Ui {
 class MainWindow2;

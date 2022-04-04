@@ -33,7 +33,8 @@ SOURCES += \
     qrcode.cpp \
     qrcodegeneratordemo.cpp \
     qrcodegenratorworker.cpp \
-    qrwidget.cpp
+    qrwidget.cpp \
+    widget.cpp
 
 HEADERS += \
     chatboxconnectiondialog.h \
@@ -46,13 +47,15 @@ HEADERS += \
     mainwindow2.h \
     qrcode.h \
     qrcodegenratorworker.h \
-    qrwidget.h
+    qrwidget.h \
+    widget.h
 
 FORMS += \
     chatboxconnectiondialog.ui \
     dialog.ui \
     mainwindow.ui \
-    mainwindow2.ui
+    mainwindow2.ui \
+    widget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

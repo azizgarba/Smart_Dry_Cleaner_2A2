@@ -1,15 +1,13 @@
-//metier chat
-#include "dialog.h"
-#include "ui_dialog.h"
+#include "widget.h"
+#include "ui_widget.h"
 #include "chatboxconnectiondialog.h"
 #include <QTcpSocket>
 #include <QTextStream>
-#include "chatboxconnectiondialog.h"
 
-
-Dialog::Dialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::Dialog)
+namespace DuarteCorporation{
+widget::widget(QWidget *parent)
+    : QWidget(parent)
+    , ui(new Ui::widget)
 {
     ui->setupUi(this);
     nSocket=new QTcpSocket(this);
@@ -20,12 +18,13 @@ Dialog::Dialog(QWidget *parent) :
     });
 }
 
-Dialog::~Dialog()
+widget::~widget()
 {
     delete ui;
 }
 
-void Dialog::on_send_clicked()
+
+void DuarteCorporation::widget::on_send_clicked()
 {
     QTextStream T(nSocket);
     T << ui->lineEdit-> text() << ": " << ui->message->text();
@@ -33,12 +32,12 @@ void Dialog::on_send_clicked()
     ui->message->clear();
 }
 
-void Dialog::on_bind_clicked()
+void DuarteCorporation::widget::on_bind_clicked()
 {
-    /*ChatboxConnectionDialog D(this);
+    ChatboxConnectionDialog D(this);
     if(D.exec()==QDialog::Rejected)
     {return;
     }
-    nSocket->connectToHost(D.hostname(),D.port());*/
+    nSocket->connectToHost(D.hostname(),D.port());
+    }
 }
-

@@ -24,6 +24,7 @@
 #include<QDirModel>
 #include <QtPrintSupport/QPrintDialog>
 #include "dialog.h"
+#include "widget.h"
 
 MainWindow2::MainWindow2(QWidget *parent) :
     QMainWindow(parent),
@@ -277,4 +278,5 @@ void MainWindow2::openDialog()
 void MainWindow2::on_pushButton_chat_clicked()
 {
     openDialog();
+
 }
