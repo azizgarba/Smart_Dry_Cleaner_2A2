@@ -269,11 +269,6 @@ void MainWindow2::on_pushButton_trier_released()
 
 void MainWindow2::openDialog()
 {
-    /*class Dialog dialog;
-    dialog.setModal(true);
-    dialog.exec();*/
-   /* MainWindow2 *newmain= new MainWindow2();
-    newmain->show();*/
     DuarteCorporation::Widget *neww = new DuarteCorporation::Widget();
     neww->show();
 }
