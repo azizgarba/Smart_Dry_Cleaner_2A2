@@ -121,13 +121,4 @@ QSqlQueryModel *produit::trier_prix(){
 
 
 
-    void produit::notif_ajout()
-    {
-         if (etat_p=="finie")
-                {
-        QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-        notifyIcon->setIcon(QIcon(":/hydro.png.png"));
-        notifyIcon->show();
-        notifyIcon->showMessage("Gestion d'Une matiere premiere","Une matiere premiere a été ajouter",QSystemTrayIcon::Information,15000);
-}
-    }
+

@@ -70,7 +70,7 @@ void MainWindow::on_pushButton_2_clicked()
     p.ajouter() ;
 
     QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-    notifyIcon->setIcon(QIcon(":/hydro.png"));
+    notifyIcon->setIcon(QIcon("C:/Users/rania/OneDrive/Bureau/hydro.png"));
     notifyIcon->show();
     notifyIcon->showMessage("Gestion d'un produit","Un produit a été ajoutée",QSystemTrayIcon::Information,15000);
 
@@ -90,7 +90,7 @@ void MainWindow::on_pushButton_7_clicked()
 
                    }
                    QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-                   notifyIcon->setIcon(QIcon(":/hydro.png"));
+                   notifyIcon->setIcon(QIcon("C:/Users/rania/OneDrive/Bureau/hydro.png"));
                    notifyIcon->show();
                    notifyIcon->showMessage("Gestion d'un produit","Un produit a été supprimée",QSystemTrayIcon::Information,15000);
 
@@ -109,9 +109,9 @@ void MainWindow::on_pushButton_6_clicked()
 
          produit p (d, t, m, e, prr);
          QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-         notifyIcon->setIcon(QIcon(":/hydro.png"));
+         notifyIcon->setIcon(QIcon("C:/Users/rania/OneDrive/Bureau/hydro.png"));
          notifyIcon->show();
-         notifyIcon->showMessage("Gestion d'un produit","Un produit a été supprimée",QSystemTrayIcon::Information,15000);
+         notifyIcon->showMessage("Gestion d'un produit","Un produit a été modifiée",QSystemTrayIcon::Information,15000);
 
 
          p.modifier() ;
@@ -226,8 +226,29 @@ void MainWindow::on_treeView_2_activated(const QModelIndex &index)
 }
 
 
-
 void MainWindow::on_pushButton_9_clicked()
 {
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
+                                                              tr("Excel Files (*.xls)"));
+              if (fileName.isEmpty())
+                  return;
 
+              ExportExcel obj(fileName, "Produit", ui->treeView);
+
+              //colums to export
+              obj.addField(0, "ID", "char(20)");
+              obj.addField(1, "Type", "char(20)");
+              obj.addField(2, "¨Matiere", "char(20)");
+              obj.addField(3, "Prix", "char(20)");
+              obj.addField(4, "Etat", "char(20)");
+
+
+
+
+              int retVal = obj.export2Excel();
+              if( retVal > 0)
+              {
+                  QMessageBox::information(this, tr("Done"),
+                                           tr("Tous les informations ont été enregistrée"));
+              }
 }

@@ -5,18 +5,9 @@
 
 int ExportExcel::export2Excel()
 {
-    if(fieldList.size() <= 0)
-    {
-        qDebug() << "ExportExcelObject::export2Excel failed: No fields defined.";
-        return -1;
-    }
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QODBC", "excelexport");
-    if(!db.isValid())
-    {
-        qDebug() << "ExportExcelObject::export2Excel failed: QODBC not supported.";
-        return -2;
-    }
+
     // set the dsn string
     QString dsn = QString("DRIVER={Microsoft Excel Driver (*.xls)};DSN='';FIRSTROWHASNAMES=1;READONLY=FALSE;CREATE_DB=\"%1\";DBQ=%2").
                   arg(excelFilePath).arg(excelFilePath);
@@ -24,8 +15,8 @@ int ExportExcel::export2Excel()
     if(!db.open())
     {
         qDebug() << "ExportExcelObject::export2Excel failed: Create Excel file failed by DRIVER={Microsoft Excel Driver (*.xls)}.";
-        //QSqlDatabase::removeDatabase("excelexport");
-        return -3;
+
+       // return -3;
     }
 
     QSqlQuery query(db);
