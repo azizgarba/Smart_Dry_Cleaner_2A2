@@ -6,7 +6,7 @@ QT       += core gui network
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport serialport
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
@@ -27,12 +27,14 @@ SOURCES += \
     employee.cpp \
     excel.cpp \
     exportexcel.cpp \
+    fournisseur.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
     mainwindow2.cpp \
     offre.cpp \
     produit.cpp \
+    qcustomplot.cpp \
     qrcode.cpp \
     qrcodegeneratordemo.cpp \
     qrcodegenratorworker.cpp \
@@ -47,11 +49,13 @@ HEADERS += \
     employee.h \
     excel.h \
     exportexcel.h \
+    fournisseur.h \
     login.h \
     mainwindow.h \
     mainwindow2.h \
     offre.h \
     produit.h \
+    qcustomplot.h \
     qrcode.h \
     qrcodegenratorworker.h \
     qrwidget.h \

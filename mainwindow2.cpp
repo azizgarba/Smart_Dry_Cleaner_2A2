@@ -33,7 +33,7 @@
 #include"offre.h"
 #include<QSystemTrayIcon>
 #include"excel.h"
-
+#include "fournisseur.h"
 MainWindow2::MainWindow2(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow2)
@@ -355,7 +355,7 @@ void MainWindow2::on_pushButton_8_clicked()
     ui->lineEdit_num_tel_3->setText("");
     ui->lineEdit_email_3->setText("");
     ui->lineEdit_age_3->setText("");
-    ui->tableView->setModel(c.afficher_client());}
+    ui->tableView_3->setModel(c.afficher_client());}
     else{
         QMessageBox::critical(nullptr, QObject::tr("email error"),
                            QObject::tr("pls enter a valid email.\n"
@@ -469,7 +469,7 @@ void MainWindow2::on_pushButton_9_clicked()
  prenom=ui->lineEdit_prenom_4->text();
 QDateTime date = QDateTime::currentDateTime();
 QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
-QPdfWriter pdf("D:/Esprit/c++/QT exercices/Hydro_Plus_Pdf/pdf_test1.pdf");
+QPdfWriter pdf("C:/Users/rania/OneDrive/Documents/Employee/pdf_test1.pdf");
 
 QPainter painter(&pdf);
 
@@ -711,3 +711,46 @@ void MainWindow2::on_lineEdit_search_2_textChanged(const QString &arg1)
     ui->tableView_3->setModel(c.afficher_client_recherche(arg1));
 }
 
+
+void MainWindow2::on_pb_ajouter_clicked()
+{
+    int cin=ui->le_cin->text().toInt();
+    QString nom=ui->le_nom->text();
+    QString numero=ui->le_numero->text();
+    QString adresse=ui->le_adresse->text();
+    int paiment=ui->le_paiment->text().toInt();
+    QString date=ui->le_date->text();
+ Fournisseur F(cin,nom,numero,adresse,paiment,date);
+ bool test=F.ajouter();
+ if (test)
+         {
+             Fournisseur Fe;
+             ui->tab_fournisseurs->setModel(Fe.afficher());
+             QMessageBox::information(nullptr, QObject::tr("ok"),
+                                      QObject::tr("Ajout effectué.\n"
+                                                  "Click cancel to exit."), QMessageBox::Cancel);
+         }
+         else
+             QMessageBox::critical(nullptr, QObject::tr("not ok"),
+                                   QObject::tr("Ajout non effectué.\n"
+                                               "Click cancel to exit."), QMessageBox::Cancel);
+
+}
+
+void MainWindow2::on_le_aff_clicked()
+{
+    Fournisseur Fe;
+    ui->tab_fournisseurs->setModel(Fe.afficher());
+    //afficher selon le nom
+     if(QString::number(ui->pb_tri->currentIndex())=="0"){
+      ui->tab_fournisseurs->setModel(Fe.afficher_fournis_par_nom());
+     }
+     //afficher selon le prenom
+     else if(QString::number(ui->pb_tri->currentIndex())=="1"){
+        ui->tab_fournisseurs->setModel(Fe.afficher_fournis_par_achat());
+     }
+     //afficher selon l'age
+     else if(QString::number(ui->pb_tri->currentIndex())=="2"){
+         ui->tab_fournisseurs->setModel(Fe.afficher_fournis_par_date());
+     }
+}

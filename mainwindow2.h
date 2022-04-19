@@ -102,6 +102,10 @@ private slots:
 
     void on_lineEdit_search_2_textChanged(const QString &arg1);
 
+    void on_pb_ajouter_clicked();
+
+    void on_le_aff_clicked();
+
 public slots:
     void openDialog();
 

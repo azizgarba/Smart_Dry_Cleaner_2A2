@@ -94,10 +94,10 @@ border-radius:10px;</string>
       <widget class="QLabel" name="label">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>10</x>
          <y>50</y>
-         <width>81</width>
-         <height>16</height>
+         <width>101</width>
+         <height>20</height>
         </rect>
        </property>
        <property name="font">
@@ -114,10 +114,10 @@ border-radius:10px;</string>
       <widget class="QLabel" name="label_2">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>10</x>
          <y>100</y>
-         <width>91</width>
-         <height>16</height>
+         <width>111</width>
+         <height>20</height>
         </rect>
        </property>
        <property name="font">
@@ -135,10 +135,16 @@ border-radius:10px;</string>
        <property name="geometry">
         <rect>
          <x>100</x>
-         <y>150</y>
+         <y>140</y>
          <width>75</width>
          <height>23</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(169, 223, 247);
@@ -153,7 +159,7 @@ border-radius:10px;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>180</y>
+         <y>130</y>
          <width>251</width>
          <height>20</height>
         </rect>
@@ -169,6 +175,30 @@ border-radius:10px;</string>
         <string/>
        </property>
       </widget>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>170</y>
+         <width>141</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(169, 223, 247);
+color:rgb(0,0,0);
+border-radius:10px;</string>
+       </property>
+       <property name="text">
+        <string>Login avec carte</string>
+       </property>
+      </widget>
      </widget>
     </widget>
    </widget>
@@ -179,7 +209,7 @@ border-radius:10px;</string>
      <x>0</x>
      <y>0</y>
      <width>465</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

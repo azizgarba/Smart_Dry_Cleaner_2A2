@@ -7,7 +7,7 @@
 #include"connection.h"
 #include<QMessageBox>
 #include<QString>
-#include<QRandomGenerator>
+//#include<QRandomGenerator>
 #include<QtGlobal>
 #include<qsqlquerymodel.h>
 class Client
