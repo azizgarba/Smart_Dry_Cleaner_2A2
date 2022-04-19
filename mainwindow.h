@@ -1,5 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#include "arduino.h"
 
 #include <QMainWindow>
 #include "fournisseur.h"
@@ -16,6 +17,10 @@ public:
     ~MainWindow();
 
 private slots:
+
+
+    void update_nb();
+
     void on_pb_ajouter_clicked();
 
     void on_le_aff_clicked();
@@ -42,11 +47,12 @@ private slots:
 
     void on_pdf_aff_clicked();
 
-    void on_traduire_clicked();
-
-    void on_le_aff_2_clicked();
+    void on_pushButton_clicked();
 
 private:
+    QByteArray data; // variable contenant les données reçues
+
+        Arduino A; // objet temporaire
     Ui::MainWindow *ui;
     Fournisseur ftmp;
 

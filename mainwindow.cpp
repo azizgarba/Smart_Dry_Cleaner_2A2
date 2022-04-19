@@ -16,17 +16,38 @@
 #include <QTextStream>
 #include "qcustomplot.h"
 #include "connection.h"
+#include "arduino.h"
 
+#include "QTranslator"
+#include "QInputDialog"
+#include "QApplication"
+
+int nb=0;
+int test=0;
+int pas=0;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 
 {
+
     ui->setupUi(this);
     ui->le_cin->setValidator(new QIntValidator(100, 99999999, this));
     ui->le_numero->setValidator(new QIntValidator(100, 99999999, this));
-    ui->recherche->setPlaceholderText("Rechercher");
+    //ui->recherche->setPlaceholderText("Rechercher");
+
+    int ret=A.connect_arduino(); // lancer la connexion à arduino
+    switch(ret){
+    case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+        break;
+    case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+       break;
+    case(-1):qDebug() << "arduino is not available";
+    }
+     QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_nb())); // permet de lancer
+     //le slot update_label suite à la reception du signal readyRead (reception des données).
+
 
 
 }
@@ -75,6 +96,33 @@ void MainWindow::on_pb_ajouter_released()
 }
 
 
+
+
+
+void MainWindow::update_nb()
+{
+
+  data=A.read_from_arduino();
+
+  if(data == "0000"){
+      test=1;
+  }
+  if(data == "1111" && test == 1){
+      test=0;
+      pas++;
+      if(pas==2){
+          nb++;
+          pas=0;
+      }
+
+  }
+
+qDebug()<<"test"<<nb;
+qDebug()<<"data"<<data;
+
+
+
+}
 
 
 
@@ -241,11 +289,19 @@ void MainWindow::on_pdf_aff_clicked()
     QPainter painter(&pdf);
 
     painter.setPen(Qt::blue);
-    painter.drawText(4200,200,"Hydro+ pressing:Fournisseurs");
-    painter.drawText(100,1100,"CIN :"+space+""+cin+"");
-    painter.drawText(100,1300,"date :"+space+""+date+"");
+    //painter.drawText(4200,200,"Hydro+ pressing:Fournisseurs");
+    painter.drawText(100,1500,"CIN :"+space+""+cin+"");
+    painter.drawText(100,1800,"NOM :"+space+""+nom+"");
+    painter.drawText(100,2100,"ADRESSE :"+space+""+adresse+"");
+    painter.drawText(100,2400,"NUMERO :"+space+""+numero+"");
+    painter.drawText(100,2700,"PAIMENT :"+space+""+paiment+"");
+    painter.drawText(100,3000,"DATE :"+space+""+date+"");
+    painter.drawText(8400,5000,"Signature");
 
-    painter.drawPixmap(QRect(-300,-300,1500,1000),QPixmap("C:/Users/ThinkPad/Desktop/projet c++ 2eme/fournisseur/logo.png"));
+    painter.drawPixmap(QRect(-300,-300,2000,1300),QPixmap("C:/Users/ThinkPad/Desktop/projet c++ 2eme/fournisseur/logo.png"));
+
+     painter.drawPixmap(QRect(3300,-1000,3000,3000),QPixmap("C:/Users/ThinkPad/Desktop/projet c++ 2eme/fournisseur/titre.png"));
+     painter.drawPixmap(QRect(8000,-200,2000,1300),QPixmap("C:/Users/ThinkPad/Desktop/projet c++ 2eme/fournisseur/code.png"));
 
 
 
@@ -255,7 +311,10 @@ void MainWindow::on_pdf_aff_clicked()
 }
 
 
-void MainWindow::on_traduire_clicked()
+
+
+
+/*void MainWindow::on_traduire_clicked()
 {
     QString test ;
     test = ui->label_3->text();
@@ -276,9 +335,12 @@ void MainWindow::on_traduire_clicked()
            ui->pdf_aff->setText("Display PDF");
            ui->groupBox->setTitle("Add a Provider");
            ui->groupBox_2->setTitle("Display");
-
            ui->recherche->setPlaceholderText("Search");
            ui->traduire->setText("Translate");
+           ui->pb_tri->clear();
+           ui->pb_tri->addItem("Name");
+           ui->pb_tri->addItem("Number of purchases");
+           ui->pb_tri->addItem("Date");
     }
     else
     {
@@ -295,15 +357,23 @@ void MainWindow::on_traduire_clicked()
         ui->pdf_aff->setText("Afficher un PDF");
         ui->groupBox->setTitle("Ajouter un Fournisseur");
         ui->groupBox_2->setTitle("Afficher");
-
         ui->recherche->setPlaceholderText("Rechercher");
         ui->traduire->setText("Traduire");
+        ui->pb_tri->clear();
+        ui->pb_tri->addItem("Nom");
+        ui->pb_tri->addItem("Nombre d'achat");
+        ui->pb_tri->addItem("Date");
+
+
     }
 
 
 }
 
-void MainWindow::on_le_aff_2_clicked()
+*/
+
+
+void MainWindow::on_pushButton_clicked()
 {
     QTableView table_necessiteux,table_n2;
              QSqlQueryModel * Mod=new  QSqlQueryModel();
@@ -333,7 +403,7 @@ void MainWindow::on_le_aff_2_clicked()
                 // set dark background gradient:
                  QLinearGradient gradient(0, 0, 0, 400);
                  gradient.setColorAt(0, QColor(192, 192, 192));
-                 gradient.setColorAt(0.38, QColor(105, 105, 105));
+                 gradient.setColorAt(0.38, QColor(192, 192, 192));
                  gradient.setColorAt(1, QColor(70, 70, 70));
                  ui->customPlot->setBackground(QBrush(gradient));
 
@@ -411,3 +481,9 @@ void MainWindow::on_le_aff_2_clicked()
 
              ui->customPlot->replot();
 }
+
+
+
+
+
+

@@ -33,9 +33,9 @@ background-image:url(C:/Users/ThinkPad/Downloads/logo.png);}</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>100</y>
+      <y>20</y>
       <width>201</width>
-      <height>371</height>
+      <height>451</height>
      </rect>
     </property>
     <property name="font">
@@ -471,45 +471,6 @@ border-color: rgb(0, 129, 233);
 border-radius:10px;</string>
     </property>
    </widget>
-   <widget class="QGraphicsView" name="graphicsView_3">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>10</y>
-      <width>161</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:rgb(18, 116, 161);
-color:  rgb(0, 0, 0);
-border-color: rgb(0, 129, 233);
-border-radius:10px;</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>0</y>
-      <width>131</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <weight>75</weight>
-      <italic>false</italic>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color:  rgb(0, 0, 0);</string>
-    </property>
-    <property name="text">
-     <string>Traduire en anglais :</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="recherche">
     <property name="geometry">
      <rect>
@@ -572,32 +533,6 @@ border-radius:10px;</string>
      <string>Afficher un PDF</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="traduire">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>40</y>
-      <width>131</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Consolas</family>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:rgb(169, 223, 247);
-color:  rgb(0, 0, 0);
-border-color: rgb(0, 129, 233);
-border-radius:10px;</string>
-    </property>
-    <property name="text">
-     <string>Traduire </string>
-    </property>
-   </widget>
    <widget class="QCustomPlot" name="customPlot" native="true">
     <property name="geometry">
      <rect>
@@ -608,21 +543,14 @@ border-radius:10px;</string>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="le_aff_2">
+   <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>379</y>
+      <y>380</y>
       <width>131</width>
       <height>41</height>
      </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Consolas</family>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color:rgb(169, 223, 247);
@@ -631,7 +559,7 @@ border-color: rgb(0, 129, 233);
 border-radius:10px;</string>
     </property>
     <property name="text">
-     <string>statistique</string>
+     <string>Statistique</string>
     </property>
    </widget>
    <zorder>graphicsView_2</zorder>
@@ -640,14 +568,11 @@ border-radius:10px;</string>
    <zorder>pb_supprimer</zorder>
    <zorder>label_7</zorder>
    <zorder>pb_tri</zorder>
-   <zorder>graphicsView_3</zorder>
-   <zorder>label_8</zorder>
    <zorder>recherche</zorder>
    <zorder>le_aff</zorder>
    <zorder>pdf_aff</zorder>
-   <zorder>traduire</zorder>
    <zorder>customPlot</zorder>
-   <zorder>le_aff_2</zorder>
+   <zorder>pushButton</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
