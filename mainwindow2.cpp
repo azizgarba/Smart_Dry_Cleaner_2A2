@@ -34,6 +34,11 @@
 #include<QSystemTrayIcon>
 #include"excel.h"
 #include "fournisseur.h"
+#include "QTranslator"
+#include "QInputDialog"
+#include "QApplication"
+#include "qcustomplot.h"
+
 MainWindow2::MainWindow2(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow2)
@@ -93,6 +98,10 @@ MainWindow2::MainWindow2(QWidget *parent) :
                    ui->treeView_2->setModel(of.afficherOffre());
                    ui->treeView_2->setSelectionBehavior(QAbstractItemView::SelectRows);
                    ui->treeView_2->setSelectionMode(QAbstractItemView::SingleSelection);
+
+ //fournisseurs
+                   ui->le_cin->setValidator(new QIntValidator(100, 99999999, this));
+                   ui->le_numero->setValidator(new QIntValidator(100, 99999999, this));
 }
 
 MainWindow2::~MainWindow2()
@@ -469,7 +478,7 @@ void MainWindow2::on_pushButton_9_clicked()
  prenom=ui->lineEdit_prenom_4->text();
 QDateTime date = QDateTime::currentDateTime();
 QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
-QPdfWriter pdf("C:/Users/rania/OneDrive/Documents/Employee/pdf_test1.pdf");
+QPdfWriter pdf("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/pdf_test1.pdf");
 
 QPainter painter(&pdf);
 
@@ -482,12 +491,12 @@ painter.setPen(Qt::red);
 painter.drawText(100,1000,"CODE:10HYriKf");
 painter.setPen(Qt::blue);
 painter.drawText(100,1200,formattedTime);
-painter.drawPixmap(QRect(3000,2000,4000,3000),QPixmap("C:/Users/MAG-PC/OneDrive/Pictures/coupon10%OFF.png"));
-painter.drawPixmap(QRect(-300,-300,1500,1000),QPixmap("C:/Users/MAG-PC/OneDrive/Pictures/hydro+2.png"));
+painter.drawPixmap(QRect(3000,2000,4000,3000),QPixmap("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/coupon10%OFF.png"));
+painter.drawPixmap(QRect(-300,-300,1500,1000),QPixmap("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
 
 painter.end();
 c.nbr_fidelite2(prix,nom);
-QDesktopServices::openUrl(QUrl("file:///D:/Esprit/c++/QT%20exercices/Hydro_Plus_Pdf/pdf_test1.pdf"));
+QDesktopServices::openUrl(QUrl("file:///C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/pdf_test1.pdf"));
 //c.decre_pts_fidelite(nom);
 }
 
@@ -497,7 +506,7 @@ void MainWindow2::on_pushButton_10_clicked()
     Client c;
         QString mail;
         mail=ui->lineEdit_email_3->text();
-        Smtp* smtp = new Smtp("mohamedaziz.guerbouj@esprit.tn" , "201JMT2698", "smtp.gmail.com",465);
+        Smtp* smtp = new Smtp("emna.kallel@esprit.tn" , "201JFTemna", "smtp.gmail.com",465);
          connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
         smtp->sendMail("test",mail,"test","hello this is a mail test!!!");
         QMessageBox::information(nullptr, QObject::tr("SENT"),
@@ -519,7 +528,7 @@ void MainWindow2::on_pushButton_2_clicked()
     p.ajouter() ;
 
     QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-    notifyIcon->setIcon(QIcon("C:/Users/MAG-PC/OneDrive/Pictures/hydro+2.png"));
+    notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
     notifyIcon->show();
     notifyIcon->showMessage("Gestion d'un produit","Un produit a été ajoutée",QSystemTrayIcon::Information,15000);
 
@@ -544,7 +553,7 @@ void MainWindow2::on_pushButton_6_clicked()
 
       produit p (d, t, m, e, prr);
       QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-      notifyIcon->setIcon(QIcon("C:/Users/MAG-PC/OneDrive/Pictures/hydro+2.png"));
+      notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
       notifyIcon->show();
       notifyIcon->showMessage("Gestion d'un produit","Un produit a été modifiée",QSystemTrayIcon::Information,15000);
 
@@ -566,7 +575,7 @@ void MainWindow2::on_pushButton_7_clicked()
 
       }
       QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-      notifyIcon->setIcon(QIcon("C:/Users/MAG-PC/OneDrive/Pictures/hydro+2.png"));
+      notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
       notifyIcon->show();
       notifyIcon->showMessage("Gestion d'un produit","Un produit a été supprimée",QSystemTrayIcon::Information,15000);
 
@@ -642,7 +651,7 @@ void MainWindow2::on_treeView_activated(const QModelIndex &index)
 {
     QString val=ui->treeView->model()->data(index).toString();
        QSqlQuery qry;
-       qry.prepare("select * from produit where produit_id='"+val+"' or type='"+val+"' or matiere='"+val+"' or etat_p='"+val+"' or prix='"+val+"'");
+       qry.prepare("select * from produits where produit_id='"+val+"' or type='"+val+"' or matiere='"+val+"' or etat_p='"+val+"' or prix='"+val+"'");
 
        if (qry.exec())
        {
@@ -712,6 +721,8 @@ void MainWindow2::on_lineEdit_search_2_textChanged(const QString &arg1)
 }
 
 
+//**************************************Fournisseur*****************
+
 void MainWindow2::on_pb_ajouter_clicked()
 {
     int cin=ui->le_cin->text().toInt();
@@ -753,4 +764,221 @@ void MainWindow2::on_le_aff_clicked()
      else if(QString::number(ui->pb_tri->currentIndex())=="2"){
          ui->tab_fournisseurs->setModel(Fe.afficher_fournis_par_date());
      }
+}
+
+void MainWindow2::on_pb_modifier_clicked()
+{
+    int cin=ui->le_cin->text().toInt();
+    QString nom=ui->le_nom->text();
+    QString numero=ui->le_numero->text();
+    QString adresse=ui->le_adresse->text();
+    int paiment=ui->le_paiment->text().toInt();
+    QString date=ui->le_date->text();
+
+     Fournisseur F(cin,nom,numero,adresse,paiment,date);
+
+
+                bool test=F.modifier();
+
+                if (test)
+                        {
+                            Fournisseur Fe;
+                            ui->tab_fournisseurs->setModel(Fe.afficher());
+                            QMessageBox::information(nullptr, QObject::tr("ok"),
+                                                     QObject::tr("Modification effectué.\n"
+                                                                 "Click cancel to exit."), QMessageBox::Cancel);
+                        }
+                        else
+                            QMessageBox::critical(nullptr, QObject::tr("not ok"),
+                                                  QObject::tr("Modification non effectué.\n"
+                                                              "Click cancel to exit."), QMessageBox::Cancel);
+
+}
+
+void MainWindow2::on_pb_supprimer_clicked()
+{
+    QItemSelectionModel *select = ui->tab_fournisseurs->selectionModel();
+                   int cin =select->selectedRows().value(0).data().toInt();
+                   if(ftmp.supprimer(cin))
+                   {
+                       ui->tab_fournisseurs->setModel(ftmp.afficher());
+                       ui->statusbar->showMessage("SUPPRESSION : SUCCESS");
+                   }
+
+}
+//stat
+void MainWindow2::on_pushButton_16_clicked()
+{
+    QTableView table_necessiteux,table_n2;
+             QSqlQueryModel * Mod=new  QSqlQueryModel();
+             QSqlQueryModel * Mod2=new  QSqlQueryModel();
+                  Connection c;
+                  QSqlQuery qry,q2;
+                  qry.prepare("select NOM_F from fournisseurs");
+                  qry.exec();
+                  Mod->setQuery(qry);
+                  table_necessiteux.setModel(Mod);
+
+                  q2.prepare("select AVG(paiment_achat_f) from fournisseurs group by nom_f");
+                  q2.exec();
+                  Mod2->setQuery(q2);
+                  table_n2.setModel(Mod2);
+
+                  c.closeConnection();
+
+                 qDebug()<<table_necessiteux.model()->data(table_necessiteux.model()->index(0, 0)).toString().simplified();
+                 qDebug()<<table_n2.model()->data(table_n2.model()->index(0, 0)).toInt();
+
+                 const int rowCount = table_necessiteux.model()->rowCount();
+                 const int rowCount2 = table_n2.model()->rowCount();
+
+
+
+                // set dark background gradient:
+                 QLinearGradient gradient(0, 0, 0, 400);
+                 gradient.setColorAt(0, QColor(192, 192, 192));
+                 gradient.setColorAt(0.38, QColor(192, 192, 192));
+                 gradient.setColorAt(1, QColor(70, 70, 70));
+                 ui->customPlot->setBackground(QBrush(gradient));
+
+                 // create empty bar chart objects:
+                 QCPBars *besoin = new QCPBars(ui->customPlot->xAxis, ui->customPlot->yAxis);
+
+                 besoin->setAntialiased(false); // gives more crisp, pixel aligned bar borders
+
+                 besoin->setStackingGap(1);
+
+                 // set names and colors:
+
+                 besoin->setName("Paiment");
+                 besoin->setPen(QPen(QColor(0, 168, 140).lighter(130)));
+             besoin->setBrush(QColor(18, 116, 161));
+                 // stack bars on top of each other:
+
+
+                 // prepare x axis with needs' labels:
+                 QVector<double> ticks;
+                 QVector<QString> labels;
+
+                 for(int i=0; i<rowCount; ++i){
+                     ticks.push_back(i);
+                     labels.push_back(table_necessiteux.model()->data(table_necessiteux.model()->index(i, 0)).toString().simplified());
+                     qDebug()<<ticks[i];
+                     qDebug()<<labels[i];
+                 }
+                 QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
+                 textTicker->addTicks(ticks, labels);
+                 ui->customPlot->xAxis->setTicker(textTicker);
+                 ui->customPlot->xAxis->setTickLabelRotation(60);
+                 ui->customPlot->xAxis->setSubTicks(false);
+                 ui->customPlot->xAxis->setTickLength(0, 4);
+                 ui->customPlot->xAxis->setRange(0, 8);
+                 ui->customPlot->xAxis->setBasePen(QPen(Qt::black));
+                 ui->customPlot->xAxis->setTickPen(QPen(Qt::black));
+                 ui->customPlot->xAxis->grid()->setVisible(true);
+                 ui->customPlot->xAxis->grid()->setPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
+                 ui->customPlot->xAxis->setTickLabelColor(Qt::black);
+                 ui->customPlot->xAxis->setLabelColor(Qt::black);
+
+                 // prepare y axis:
+                 ui->customPlot->yAxis->setRange(0,50);
+             ui->customPlot->yAxis->setPadding(5); // a bit more space to the left border
+             ui->customPlot->yAxis->setBasePen(QPen(Qt::white));
+             ui->customPlot->yAxis->setTickPen(QPen(Qt::white));
+             ui->customPlot->yAxis->setSubTickPen(QPen(Qt::white));
+             ui->customPlot->yAxis->grid()->setSubGridVisible(true);
+             ui->customPlot->yAxis->setTickLabelColor(Qt::white);
+             ui->customPlot->yAxis->setLabelColor(Qt::white);
+             ui->customPlot->yAxis->grid()->setPen(QPen(QColor(130, 130, 130), 0, Qt::SolidLine));
+             ui->customPlot->yAxis->grid()->setSubGridPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
+
+                 // Add data:
+                 QVector<double>besoinData;
+
+                 for(int i=0; i<rowCount2; ++i){
+                     besoinData.push_back(table_n2.model()->data(table_n2.model()->index(i, 0)).toInt());
+                     qDebug()<<besoinData;
+
+                 }
+
+                 besoin->setData(ticks, besoinData);
+
+                 // setup legend:
+                 ui->customPlot->legend->setVisible(true);
+             ui->customPlot->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignTop|Qt::AlignHCenter);
+             ui->customPlot->legend->setBrush(QColor(255, 255, 255, 100));
+             ui->customPlot->legend->setBorderPen(Qt::NoPen);
+             QFont legendFont = font();
+             legendFont.setPointSize(10);
+             ui->customPlot->legend->setFont(legendFont);
+             ui->customPlot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
+
+             ui->customPlot->replot();
+}
+
+void MainWindow2::on_pdf_aff_clicked()
+{
+    QString numero,adresse,date,nom,cin,paiment;
+
+       QString space=" ";
+       numero=ui->le_numero->text();
+       adresse=ui->le_adresse->text();
+       date=ui->le_date->text();
+       nom=ui->le_nom->text();
+       cin=ui->le_cin->text();
+       paiment=ui->le_paiment->text();
+
+
+       QPdfWriter pdf("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/image/pdf_four.pdf");
+
+       QPainter painter(&pdf);
+
+       painter.setPen(Qt::blue);
+       //painter.drawText(4200,200,"Hydro+ pressing:Fournisseurs");
+       painter.drawText(100,1500,"CIN :"+space+""+cin+"");
+       painter.drawText(100,1800,"NOM :"+space+""+nom+"");
+       painter.drawText(100,2100,"ADRESSE :"+space+""+adresse+"");
+       painter.drawText(100,2400,"NUMERO :"+space+""+numero+"");
+       painter.drawText(100,2700,"PAIMENT :"+space+""+paiment+"");
+       painter.drawText(100,3000,"DATE :"+space+""+date+"");
+       painter.drawText(8400,5000,"Signature");
+
+       painter.drawPixmap(QRect(-300,-300,2000,1300),QPixmap("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/image/logo.png"));
+
+        painter.drawPixmap(QRect(3300,-1000,3000,3000),QPixmap("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/image/titre.png"));
+
+
+       painter.end();
+
+     QDesktopServices::openUrl(QUrl("file:///C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/image/pdf_four.pdf"));
+}
+
+void MainWindow2::on_tab_fournisseurs_activated(const QModelIndex &index)
+{
+    QString val=ui->tab_fournisseurs->model()->data(index).toString();
+        QString sQuery="SELECT FOURNIS_ID, NOM_F, NUMERO_TEL, ADRESSE_F, PAIMENT_ACHAT_F, DATE_CONTRAT FROM FOURNISSEURS WHERE FOURNIS_ID='"+val+"' or NOM_F='"+val+"' or NUMERO_TEL='"+val+"' or ADRESSE_F='"+val+"' or PAIMENT_ACHAT_F='"+val+"' or DATE_CONTRAT='"+val+"'";
+        QSqlQuery qry;
+        qry.prepare(sQuery);
+
+        if(qry.exec()){
+
+                        while(qry.next())
+
+                                {
+                                    ui->le_cin->setText(qry.value(0).toString());
+                                    ui->le_nom->setText(qry.value(1).toString());
+                                    ui->le_numero->setText(qry.value(2).toString());
+                                    ui->le_adresse->setText(qry.value(3).toString());
+                                    ui->le_paiment->setText(qry.value(4).toString());
+                                    ui->le_date->setDate(qry.value(5).toDate());
+
+
+                                }
+        }
+}
+
+void MainWindow2::on_recherche_textChanged(const QString &arg1)
+{
+    Fournisseur Fe;
+    ui->tab_fournisseurs->setModel(Fe.chercher(arg1));
 }

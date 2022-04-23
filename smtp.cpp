@@ -126,7 +126,7 @@ void Smtp::readyRead()
   else if (state == User && responseLine == "334")
     {
       qDebug() << "Username";
-      *t << QByteArray().append("mohamedaziz.guerbouj@esprit.tn").toBase64()  << "\r\n";
+      *t << QByteArray().append("emna.kallel@esprit.tn").toBase64()  << "\r\n";
       t->flush();
 
       state = Pass;
@@ -134,7 +134,7 @@ void Smtp::readyRead()
   else if (state == Pass && responseLine == "334")
     {
       qDebug() << "Pass";
-      *t << QByteArray().append("201JMT2698").toBase64() << "\r\n";
+      *t << QByteArray().append("201JFTemna").toBase64() << "\r\n";
       t->flush();
 
       state = Mail;

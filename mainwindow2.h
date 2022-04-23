@@ -5,6 +5,7 @@
 #include "employee.h"
 #include"produit.h"
 #include"offre.h"
+#include "fournisseur.h"
 
 
 namespace Ui {
@@ -106,6 +107,18 @@ private slots:
 
     void on_le_aff_clicked();
 
+    void on_pb_modifier_clicked();
+
+    void on_pb_supprimer_clicked();
+
+    void on_pushButton_16_clicked();
+
+    void on_pdf_aff_clicked();
+
+    void on_tab_fournisseurs_activated(const QModelIndex &index);
+
+    void on_recherche_textChanged(const QString &arg1);
+
 public slots:
     void openDialog();
 
@@ -114,6 +127,7 @@ private:
     Employee etmp;
     produit pr;
     offre of;
+    Fournisseur ftmp;
     //Dialog *Dialog;
 };
 

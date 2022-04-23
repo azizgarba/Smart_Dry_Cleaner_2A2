@@ -43,7 +43,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <property name="usesScrollButtons">
      <bool>false</bool>
@@ -56,7 +56,9 @@
     </property>
     <widget class="QWidget" name="tab">
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">#tab{
+background-image:url(C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/image/BG.png);
+}</string>
      </property>
      <attribute name="title">
       <string>Les Employees</string>
@@ -562,7 +564,7 @@ border-radius:10px;</string>
     <widget class="QWidget" name="tab_2">
      <property name="styleSheet">
       <string notr="true">#tab_2{
-background-image:url(C:/Users/MAG-PC/OneDrive/Pictures/BG.png);
+background-image:url(C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/image/BG.png);
 }</string>
      </property>
      <attribute name="title">
@@ -1164,7 +1166,8 @@ border-radius:10px;
     <widget class="QWidget" name="tab_3">
      <property name="styleSheet">
       <string notr="true">#tab_3{
-background-image:url(C:/Users/MAG-PC/OneDrive/Pictures/BG.png);}</string>
+background-image:url(C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/image/BG.png);
+}</string>
      </property>
      <attribute name="title">
       <string>Les Produits</string>
@@ -1934,15 +1937,107 @@ border-radius:10px;border-raduis=10px</string>
      <zorder>pushButton_7</zorder>
      <zorder>id_radio_butt</zorder>
     </widget>
-    <widget class="QWidget" name="widget">
+    <widget class="QWidget" name="tab_4">
      <attribute name="title">
-      <string>Les Fournisseurs</string>
+      <string>Page</string>
      </attribute>
+     <widget class="QPushButton" name="pdf_aff">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>410</y>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Consolas</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(169, 223, 247);
+color:  rgb(0, 0, 0);
+border-color: rgb(0, 129, 233);
+border-radius:10px;</string>
+      </property>
+      <property name="text">
+       <string>Afficher un PDF</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_6">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>10</y>
+        <width>751</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="title">
+       <string>Afficher</string>
+      </property>
+      <widget class="QTableView" name="tab_fournisseurs">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>571</width>
+         <height>141</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="recherche">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>0</y>
+         <width>181</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGraphicsView" name="graphicsView_3">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>190</y>
+        <width>141</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(169, 223, 247);
+color:  rgb(0, 0, 0);
+border-color: rgb(0, 129, 233);
+border-radius:10px;</string>
+      </property>
+     </widget>
+     <widget class="QCustomPlot" name="customPlot" native="true">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>190</y>
+        <width>421</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
      <widget class="QPushButton" name="le_aff">
       <property name="geometry">
        <rect>
         <x>210</x>
-        <y>330</y>
+        <y>260</y>
         <width>131</width>
         <height>41</height>
        </rect>
@@ -1964,86 +2059,11 @@ border-radius:10px;</string>
        <string>Afficher</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_16">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>390</y>
-        <width>131</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color:rgb(169, 223, 247);
-color:  rgb(0, 0, 0);
-border-color: rgb(0, 129, 233);
-border-radius:10px;</string>
-      </property>
-      <property name="text">
-       <string>Statistique</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_18">
-      <property name="geometry">
-       <rect>
-        <x>260</x>
-        <y>260</y>
-        <width>71</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Consolas</family>
-        <weight>75</weight>
-        <italic>false</italic>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color:  rgb(0, 0, 0);</string>
-      </property>
-      <property name="text">
-       <string>Trier par :</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="pb_tri">
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>250</y>
-        <width>121</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>9</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <item>
-       <property name="text">
-        <string>Nom</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Nombre d'achat</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Date</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QGroupBox" name="groupBox_6">
+     <widget class="QGroupBox" name="groupBox_10">
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>10</y>
+        <y>0</y>
         <width>201</width>
         <height>451</height>
        </rect>
@@ -2063,7 +2083,7 @@ border-radius:10px;</string>
       <property name="flat">
        <bool>false</bool>
       </property>
-      <widget class="QLabel" name="label_19">
+      <widget class="QLabel" name="label_18">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -2102,7 +2122,7 @@ border-color: rgb(0, 129, 233);
 border-radius:10px;</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_20">
+      <widget class="QLabel" name="label_19">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -2140,7 +2160,7 @@ border-color: rgb(0, 129, 233);
 border-radius:10px;</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_21">
+      <widget class="QLabel" name="label_20">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -2162,7 +2182,7 @@ border-radius:10px;</string>
         <string>Numero :</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_30">
+      <widget class="QLabel" name="label_21">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -2184,7 +2204,7 @@ border-radius:10px;</string>
         <string>Adresse :</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_31">
+      <widget class="QLabel" name="label_30">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -2206,7 +2226,7 @@ border-radius:10px;</string>
         <string>Paiment :</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_32">
+      <widget class="QLabel" name="label_31">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -2353,50 +2373,14 @@ border-radius:10px;</string>
         <string>Modifier</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pb_supprimer">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>380</y>
-         <width>131</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Consolas</family>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:  rgb(0, 0, 0);background-color:rgb(169, 223, 247);
-color:  rgb(0, 0, 0);
-border-color: rgb(0, 129, 233);
-border-radius:10px;</string>
-       </property>
-       <property name="text">
-        <string>Supprimer</string>
-       </property>
-      </widget>
      </widget>
-     <widget class="QCustomPlot" name="customPlot" native="true">
-      <property name="geometry">
-       <rect>
-        <x>370</x>
-        <y>250</y>
-        <width>571</width>
-        <height>221</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QGraphicsView" name="graphicsView_3">
+     <widget class="QPushButton" name="pushButton_16">
       <property name="geometry">
        <rect>
         <x>210</x>
-        <y>240</y>
-        <width>141</width>
-        <height>61</height>
+        <y>360</y>
+        <width>131</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -2405,12 +2389,70 @@ color:  rgb(0, 0, 0);
 border-color: rgb(0, 129, 233);
 border-radius:10px;</string>
       </property>
+      <property name="text">
+       <string>Statistique</string>
+      </property>
      </widget>
-     <widget class="QPushButton" name="pdf_aff">
+     <widget class="QLabel" name="label_32">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>190</y>
+        <width>71</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Consolas</family>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:  rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Trier par :</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="pb_tri">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>220</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <item>
+       <property name="text">
+        <string>Nom</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Nombre d'achat</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Date</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="pb_supprimer">
       <property name="geometry">
        <rect>
         <x>210</x>
-        <y>450</y>
+        <y>310</y>
         <width>131</width>
         <height>41</height>
        </rect>
@@ -2423,88 +2465,15 @@ border-radius:10px;</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color:rgb(169, 223, 247);
+       <string notr="true">color:  rgb(0, 0, 0);background-color:rgb(169, 223, 247);
 color:  rgb(0, 0, 0);
 border-color: rgb(0, 129, 233);
 border-radius:10px;</string>
       </property>
       <property name="text">
-       <string>Afficher un PDF</string>
+       <string>Supprimer</string>
       </property>
      </widget>
-     <widget class="QGroupBox" name="groupBox_10">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>20</y>
-        <width>751</width>
-        <height>211</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>9</pointsize>
-        <weight>75</weight>
-        <italic>false</italic>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="title">
-       <string/>
-      </property>
-      <widget class="QTableView" name="tab_fournisseurs">
-       <property name="geometry">
-        <rect>
-         <x>60</x>
-         <y>40</y>
-         <width>461</width>
-         <height>141</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="recherche">
-       <property name="geometry">
-        <rect>
-         <x>170</x>
-         <y>10</y>
-         <width>181</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:rgb(169, 223, 247);
-color:  rgb(0, 0, 0);
-border-color: rgb(0, 129, 233);
-border-radius:10px;</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QLabel" name="label_33">
-      <property name="geometry">
-       <rect>
-        <x>-5</x>
-        <y>-5</y>
-        <width>801</width>
-        <height>571</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-image:url(C:/Users/rania/OneDrive/Bureau/BG.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <zorder>label_33</zorder>
-     <zorder>le_aff</zorder>
-     <zorder>pushButton_16</zorder>
-     <zorder>label_18</zorder>
-     <zorder>pb_tri</zorder>
-     <zorder>groupBox_6</zorder>
-     <zorder>customPlot</zorder>
-     <zorder>pdf_aff</zorder>
-     <zorder>groupBox_10</zorder>
-     <zorder>graphicsView_3</zorder>
     </widget>
    </widget>
   </widget>
@@ -2514,7 +2483,7 @@ border-radius:10px;</string>
      <x>0</x>
      <y>0</y>
      <width>792</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
