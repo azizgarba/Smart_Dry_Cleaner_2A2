@@ -118,8 +118,6 @@ private slots:
 
     void on_tab_fournisseurs_activated(const QModelIndex &index);
 
-    void on_recherche_textChanged(const QString &arg1);
-
     void on_valider_clicked();
 
     void on_insererim_clicked();
@@ -139,6 +137,8 @@ private slots:
     void on_affhisto_activated(const QModelIndex &index);
 
     void on_ecricherche_textChanged(const QString &arg1);
+
+    void on_chercher_textChanged(const QString &arg1);
 
 public slots:
     void openDialog();

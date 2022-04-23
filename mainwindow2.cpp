@@ -150,20 +150,15 @@ void MainWindow2::on_pushButton_ajouter_clicked()
         QString numero_e=ui->lineEdit_num->text();
         QString adresse_e=ui->lineEdit_adr->text();
         Employee E(id_e,nom_e,prenom_e,numero_e,adresse_e);
+        E.ajouter();
 
-        bool test=E.ajouter();
+        QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+        notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+        notifyIcon->show();
+        notifyIcon->showMessage("Gestion d'un employé","Un employé a été ajoutée",QSystemTrayIcon::Information,15000);
 
-        if (test)
-        {
-            ui->tableView->setModel(etmp.afficher());
-            QMessageBox::information(nullptr, QObject::tr("ok"),
-                                     QObject::tr("Ajout effectué.\n"
-                                                 "Click cancel to exit."), QMessageBox::Cancel);
-        }
-        else
-            QMessageBox::critical(nullptr, QObject::tr("not ok"),
-                                  QObject::tr("Ajout non effectué.\n"
-                                              "Click cancel to exit."), QMessageBox::Cancel);
+        ui->tableView->setModel(etmp.afficher());
+
 }
 
 void MainWindow2::on_pushButton_modif_clicked()
@@ -176,22 +171,15 @@ void MainWindow2::on_pushButton_modif_clicked()
 
 
         Employee E(id_e,nom_e,prenom_e,numero_e,adresse_e);
+        E.modifier();
 
-                    bool test=E.modifier();
-                    if(test)
+        QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+        notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+        notifyIcon->show();
+        notifyIcon->showMessage("Gestion d'un employé","Un employé a été modifié",QSystemTrayIcon::Information,15000);
 
-                        {
-                        QMessageBox::information(nullptr,QObject::tr("Ok"),
-                                             QObject::tr("Modification effectuée\n"
-                                                           "Click cancel to exit."),QMessageBox::Cancel);
-                        ui->tableView->setModel(E.afficher());
-                        }
-                    else
-                        {
-                        QMessageBox::critical(nullptr,QObject::tr("Not ok"),
-                                             QObject::tr("Modification non effectuée\n"
-                                                           "Click cancel to exit."),QMessageBox::Cancel);
-                        }
+        ui->tableView->setModel(E.afficher());
+
 }
 
 void MainWindow2::on_pushButton_qr_clicked()
@@ -212,7 +200,7 @@ void MainWindow2::on_pushButton_qr_clicked()
                          QPixmap pix( QSize(90, 90) );
                          QPainter pixPainter( &pix );
                          svgRenderer.render(&pixPainter);
-                         ui->label_6->setPixmap(pix);
+                         ui->label_15->setPixmap(pix);
                     }
 }
 
@@ -225,6 +213,11 @@ void MainWindow2::on_pushButton_supp_clicked()
                ui->tableView->setModel(etmp.afficher());
                ui->statusbar->showMessage("SUPPRESSION : SUCCESS");
            }
+           QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+           notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+           notifyIcon->show();
+           notifyIcon->showMessage("Gestion d'un employé","Un employé a été supprimé",QSystemTrayIcon::Information,15000);
+
 }
 
 void MainWindow2::on_pushButton_excel_clicked()
@@ -293,72 +286,58 @@ void MainWindow2::on_tableView_activated(const QModelIndex &index)
 
 void MainWindow2::on_pushButton_ajouter_pressed()
 {
-    ui->pushButton_ajouter->setStyleSheet("QPushButton{background-color: rgb(0, 89, 193)}");
 }
 
 void MainWindow2::on_pushButton_ajouter_released()
 {
-    ui->pushButton_ajouter->setStyleSheet("QPushButton{background-color: rgb(169, 223, 247)}");
 }
 
 void MainWindow2::on_pushButton_modif_pressed()
 {
-    ui->pushButton_modif->setStyleSheet("QPushButton{background-color: rgb(0, 89, 193)}");
 }
 
 void MainWindow2::on_pushButton_modif_released()
 {
-    ui->pushButton_ajouter->setStyleSheet("QPushButton{background-color: rgb(169, 223, 247)}");
 }
 
 void MainWindow2::on_pushButton_qr_pressed()
 {
-    ui->pushButton_qr->setStyleSheet("QPushButton{background-color: rgb(0, 89, 193)}");
 }
 
 void MainWindow2::on_pushButton_qr_released()
 {
-    ui->pushButton_qr->setStyleSheet("QPushButton{background-color: rgb(169, 223, 247)}");
 }
 
 void MainWindow2::on_pushButton_supp_pressed()
 {
-    ui->pushButton_supp->setStyleSheet("QPushButton{background-color: rgb(0, 89, 193)}");
 }
 
 void MainWindow2::on_pushButton_supp_released()
 {
-    ui->pushButton_supp->setStyleSheet("QPushButton{background-color: rgb(169, 223, 247)}");
 }
 
 void MainWindow2::on_pushButton_excel_pressed()
 {
-    ui->pushButton_excel->setStyleSheet("QPushButton{background-color: rgb(0, 89, 193)}");
 }
 
 void MainWindow2::on_pushButton_excel_released()
 {
-    ui->pushButton_excel->setStyleSheet("QPushButton{background-color: rgb(169, 223, 247)}");
 }
 
 void MainWindow2::on_pushButton_chat_pressed()
 {
-    ui->pushButton_chat->setStyleSheet("QPushButton{background-color: rgb(0, 89, 193)}");
 }
 
 void MainWindow2::on_pushButton_chat_released()
 {
-    ui->pushButton_chat->setStyleSheet("QPushButton{background-color: rgb(169, 223, 247)}");
 }
 
 void MainWindow2::on_pushButton_trier_pressed()
 {
-    ui->pushButton_trier->setStyleSheet("QPushButton{background-color: rgb(0, 89, 193)}");
 }
 
 void MainWindow2::on_pushButton_trier_released()
 {
-    ui->pushButton_trier->setStyleSheet("QPushButton{background-color: rgb(169, 223, 247)}");
 }
 
 void MainWindow2::openDialog()
@@ -397,7 +376,14 @@ void MainWindow2::on_pushButton_8_clicked()
     ui->lineEdit_num_tel_3->setText("");
     ui->lineEdit_email_3->setText("");
     ui->lineEdit_age_3->setText("");
-    ui->tableView_3->setModel(c.afficher_client());}
+    ui->tableView_3->setModel(c.afficher_client());
+    QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+    notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+    notifyIcon->show();
+    notifyIcon->showMessage("Gestion d'un client","Un client a été ajouté",QSystemTrayIcon::Information,15000);
+
+    }
+
     else{
         QMessageBox::critical(nullptr, QObject::tr("email error"),
                            QObject::tr("pls enter a valid email.\n"
@@ -467,6 +453,11 @@ void MainWindow2::on_pushButton_12_clicked()
     ui->lineEdit_email_3->setText("");
     ui->lineEdit_age_3->setText("");
     ui->tableView_3->setModel(c.afficher_client());
+    QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+    notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+    notifyIcon->show();
+    notifyIcon->showMessage("Gestion d'un client","Un client a été supprimé",QSystemTrayIcon::Information,15000);
+
 }
 
 //modifier client
@@ -492,7 +483,13 @@ void MainWindow2::on_pushButton_11_clicked()
     ui->lineEdit_num_tel_3->setText("");
     ui->lineEdit_email_3->setText("");
     ui->lineEdit_age_3->setText("");
-    ui->tableView_3->setModel(c.afficher_client());}
+    ui->tableView_3->setModel(c.afficher_client());
+    QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+    notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+    notifyIcon->show();
+    notifyIcon->showMessage("Gestion d'un client","Un client a été modifié",QSystemTrayIcon::Information,15000);
+
+    }
     else{
         QMessageBox::critical(nullptr, QObject::tr("email error"),
                            QObject::tr("pls enter a valid email.\n"
@@ -765,19 +762,14 @@ void MainWindow2::on_pb_ajouter_clicked()
     int paiment=ui->le_paiment->text().toInt();
     QString date=ui->le_date->text();
  Fournisseur F(cin,nom,numero,adresse,paiment,date);
- bool test=F.ajouter();
- if (test)
-         {
-             Fournisseur Fe;
-             ui->tab_fournisseurs->setModel(Fe.afficher());
-             QMessageBox::information(nullptr, QObject::tr("ok"),
-                                      QObject::tr("Ajout effectué.\n"
-                                                  "Click cancel to exit."), QMessageBox::Cancel);
-         }
-         else
-             QMessageBox::critical(nullptr, QObject::tr("not ok"),
-                                   QObject::tr("Ajout non effectué.\n"
-                                               "Click cancel to exit."), QMessageBox::Cancel);
+ F.ajouter();
+
+ QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+ notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+ notifyIcon->show();
+ notifyIcon->showMessage("Gestion d'un fournisseur","Un fournisseur a été ajoutée",QSystemTrayIcon::Information,15000);
+
+    ui->tab_fournisseurs->setModel(ftmp.afficher());
 
 }
 
@@ -810,22 +802,14 @@ void MainWindow2::on_pb_modifier_clicked()
 
      Fournisseur F(cin,nom,numero,adresse,paiment,date);
 
+     F.modifier();
 
-                bool test=F.modifier();
+     QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+     notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+     notifyIcon->show();
+     notifyIcon->showMessage("Gestion d'un fournisseur","Un fournisseur a été modifié",QSystemTrayIcon::Information,15000);
 
-                if (test)
-                        {
-                            Fournisseur Fe;
-                            ui->tab_fournisseurs->setModel(Fe.afficher());
-                            QMessageBox::information(nullptr, QObject::tr("ok"),
-                                                     QObject::tr("Modification effectué.\n"
-                                                                 "Click cancel to exit."), QMessageBox::Cancel);
-                        }
-                        else
-                            QMessageBox::critical(nullptr, QObject::tr("not ok"),
-                                                  QObject::tr("Modification non effectué.\n"
-                                                              "Click cancel to exit."), QMessageBox::Cancel);
-
+     ui->tab_fournisseurs->setModel(ftmp.afficher());
 }
 
 void MainWindow2::on_pb_supprimer_clicked()
@@ -837,7 +821,10 @@ void MainWindow2::on_pb_supprimer_clicked()
                        ui->tab_fournisseurs->setModel(ftmp.afficher());
                        ui->statusbar->showMessage("SUPPRESSION : SUCCESS");
                    }
-
+                   QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+                   notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+                   notifyIcon->show();
+                   notifyIcon->showMessage("Gestion d'un fournisseur","Un fournisseur a été supprimé",QSystemTrayIcon::Information,15000);
 }
 //stat
 void MainWindow2::on_pushButton_16_clicked()
@@ -1010,12 +997,12 @@ void MainWindow2::on_tab_fournisseurs_activated(const QModelIndex &index)
         }
 }
 
-void MainWindow2::on_recherche_textChanged(const QString &arg1)
+
+void MainWindow2::on_chercher_textChanged(const QString &arg1)
 {
     Fournisseur Fe;
     ui->tab_fournisseurs->setModel(Fe.chercher(arg1));
 }
-
 
 //******************************************Materiel**********************
 
@@ -1039,7 +1026,7 @@ void MainWindow2::on_valider_clicked()
 
 materiel mo(ref_m,model_m,etat_m,date_acham,tempera_m,image_m);
 mo.ajouter_valid(ui->reference->text());
-bool test=mo.ajouter();
+mo.ajouter();
 ui->modele->setText("");
 ui->temperature->setText("");
 ui->reference->setText("");
@@ -1048,23 +1035,12 @@ ui->image->setPixmap(QPixmap::fromImage(pix));
        pix = pix.scaledToWidth(ui->image->width(), Qt::SmoothTransformation);
 //QPixmap pix1("C:/Users/User/Desktop/projet qt/im.jpg");
 //ui->image->setPixmap(pix1);
+       QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+       notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+       notifyIcon->show();
+       notifyIcon->showMessage("Gestion d'un matériel","Un matériel a été ajoutée",QSystemTrayIcon::Information,15000);
 
-
-
-
-if(test)
-{
-    ui->affmate->setModel(mtmp.afficher());
-    QMessageBox::information(nullptr, QObject::tr("OK"),
-                             QObject::tr("ajout effectué \n"
-                                         "click cancel to exit."),QMessageBox::Cancel);
-}
-else
-    QMessageBox::critical(nullptr, QObject::tr("not OK"),
-                             QObject::tr("ajout non effectué \n"
-                                         "click cancel to exit."),QMessageBox::Cancel);
-
-
+ ui->affmate->setModel(mtmp.afficher());
 }
 
 void MainWindow2::on_insererim_clicked()
@@ -1157,53 +1133,49 @@ void MainWindow2::on_modifier_clicked()
 
 materiel mo(ref_m,model_m,etat_m,date_acham,tempera_m,image_m);
 mo.ajouter_modif(ui->reference->text());
-bool test=mo.modifier();
+mo.modifier();
 ui->modele->setText("");
 ui->temperature->setText("");
 ui->reference->setText("");
 ui->image->setText("");
 //QPixmap pix1(":/Users/User/Desktop/projet qt/im.jpg");
 //ui->image->setPixmap(pix1);
+QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+notifyIcon->show();
+notifyIcon->showMessage("Gestion d'un matériel","Un matériel a été modifié",QSystemTrayIcon::Information,15000);
+
+ui->affmate->setModel(mtmp.afficher());
 
 
 QDate date = QDate::currentDate();
   ui->dateachat->setDate(date);
-if(test)
-{
-    ui->affmate->setModel(mtmp.afficher());
-    QMessageBox::information(nullptr, QObject::tr("OK"),
-                             QObject::tr("modification effectué \n"
-                                         "click cancel to exit."),QMessageBox::Cancel);
-}
-else
-    QMessageBox::critical(nullptr, QObject::tr("not OK"),
-                             QObject::tr("modification non effectué \n"
-                                         "click cancel to exit."),QMessageBox::Cancel);
+
 }
 
 void MainWindow2::on_supprimer_clicked()
 {
     materiel m;
-       m.ajouter_suppri(ui->reference->text());
-      m.setRef_m(ui->reference->text());
-      bool test=mtmp.supprimer(m);
-      ui->reference->setText("");
-      ui->modele->setText("");
-      ui->temperature->setText("");
-      //QPixmap pix1(":/Users/User/Desktop/projet qt/im.jpg");
-     // ui->image->setPixmap(pix1);
+        m.ajouter_suppri(ui->reference->text());
+       m.setRef_m(ui->reference->text());
+       bool test=mtmp.supprimer(m);
+       ui->reference->setText("");
+       ui->modele->setText("");
+       ui->temperature->setText("");
+       //QPixmap pix1(":/Users/User/Desktop/projet qt/im.jpg");
+      // ui->image->setPixmap(pix1);
 
-      if(test)
-      {
-          ui->affmate->setModel(mtmp.afficher());
-          QMessageBox::information(nullptr, QObject::tr("OK"),
-                                   QObject::tr("suppression effectué \n"
-                                               "click cancel to exit."),QMessageBox::Cancel);
-      }
-      else
-          QMessageBox::critical(nullptr, QObject::tr("not OK"),
-                                   QObject::tr("suppression non effectué \n"
-                                               "click cancel to exit."),QMessageBox::Cancel);
+       if(test)
+       {
+           ui->affmate->setModel(mtmp.afficher());
+           QMessageBox::information(nullptr, QObject::tr("OK"),
+                                    QObject::tr("suppression effectué \n"
+                                                "click cancel to exit."),QMessageBox::Cancel);
+       }
+       else
+           QMessageBox::critical(nullptr, QObject::tr("not OK"),
+                                    QObject::tr("suppression non effectué \n"
+                                                "click cancel to exit."),QMessageBox::Cancel);
 }
 
 void MainWindow2::on_historique_clicked()
@@ -1306,3 +1278,5 @@ materiel mo(ref_m,model_m,etat_m,date_acham,tempera_m,image_m);
 bool test=mo.afficher();
     ui->affmate->setModel(mtmp.chercher(arg1));
 }
+
+
