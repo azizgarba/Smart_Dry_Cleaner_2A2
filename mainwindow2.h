@@ -6,7 +6,7 @@
 #include"produit.h"
 #include"offre.h"
 #include "fournisseur.h"
-
+#include "materiel.h"
 
 namespace Ui {
 class MainWindow2;
@@ -119,6 +119,26 @@ private slots:
 
     void on_recherche_textChanged(const QString &arg1);
 
+    void on_valider_clicked();
+
+    void on_insererim_clicked();
+
+    void on_afficher_clicked();
+
+    void on_modifier_clicked();
+
+    void on_supprimer_clicked();
+
+    void on_historique_clicked();
+
+    void on_afficherexcel_clicked();
+
+    void on_affmate_activated(const QModelIndex &index);
+
+    void on_affhisto_activated(const QModelIndex &index);
+
+    void on_ecricherche_textChanged(const QString &arg1);
+
 public slots:
     void openDialog();
 
@@ -128,6 +148,7 @@ private:
     produit pr;
     offre of;
     Fournisseur ftmp;
+    materiel mtmp;
     //Dialog *Dialog;
 };
 

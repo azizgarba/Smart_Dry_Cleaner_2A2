@@ -32,6 +32,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     mainwindow2.cpp \
+    materiel.cpp \
     offre.cpp \
     produit.cpp \
     qcustomplot.cpp \
@@ -53,6 +54,7 @@ HEADERS += \
     login.h \
     mainwindow.h \
     mainwindow2.h \
+    materiel.h \
     offre.h \
     produit.h \
     qcustomplot.h \
