@@ -21,6 +21,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    arduino.cpp \
     chatboxconnectiondialog.cpp \
     client.cpp \
     connection.cpp \
@@ -44,6 +45,7 @@ SOURCES += \
     widget.cpp
 
 HEADERS += \
+    arduino.h \
     chatboxconnectiondialog.h \
     client.h \
     connection.h \
@@ -74,3 +76,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    anglais.qm

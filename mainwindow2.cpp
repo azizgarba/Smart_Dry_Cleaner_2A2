@@ -121,6 +121,18 @@ MainWindow2::MainWindow2(QWidget *parent) :
                    ui->temperature->setValidator(new QIntValidator(0,9999));
                    ui->ecricherche->setPlaceholderText("Cherchez ici...");
 
+
+         //Arduino
+                   int ret=A.connect_arduino(); // lancer la connexion à arduino
+                      switch(ret){
+                      case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+                          break;
+                      case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+                         break;
+                      case(-1):qDebug() << "arduino is not available";
+                      }
+                       QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_nb())); // permet de lancer
+                       //le slot update_label suite à la reception du signal readyRead (reception des données).
 }
 
 MainWindow2::~MainWindow2()

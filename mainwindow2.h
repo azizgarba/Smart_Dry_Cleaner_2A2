@@ -7,6 +7,7 @@
 #include"offre.h"
 #include "fournisseur.h"
 #include "materiel.h"
+#include "arduino.h"
 
 namespace Ui {
 class MainWindow2;
@@ -150,6 +151,10 @@ private:
     Fournisseur ftmp;
     materiel mtmp;
     //Dialog *Dialog;
+
+    //arduino
+    QByteArray data; // variable contenant les données reçues
+    Arduino A; // objet temporaire
 };
 
 #endif // MAINWINDOW2_H
