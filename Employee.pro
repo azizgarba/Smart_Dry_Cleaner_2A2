@@ -79,3 +79,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     anglais.qm
+
+RESOURCES += \
+    traduction.qrc

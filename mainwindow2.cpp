@@ -40,6 +40,8 @@
 #include "qcustomplot.h"
 #include "materiel.h"
 
+
+
 MainWindow2::MainWindow2(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow2)
@@ -457,7 +459,6 @@ void MainWindow2::on_pushButton_12_clicked()
     notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
     notifyIcon->show();
     notifyIcon->showMessage("Gestion d'un client","Un client a été supprimé",QSystemTrayIcon::Information,15000);
-
 }
 
 //modifier client

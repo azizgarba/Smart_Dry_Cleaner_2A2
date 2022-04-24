@@ -4,6 +4,9 @@
 #include <QSqlQuery>
 #include "mainwindow2.h"
 
+#include "QTranslator"
+#include "QInputDialog"
+#include "QApplication"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)

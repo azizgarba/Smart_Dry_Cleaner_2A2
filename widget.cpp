@@ -4,6 +4,10 @@
 #include <QTcpSocket>
 #include <QTextStream>
 
+#include "QTranslator"
+#include "QInputDialog"
+#include "QApplication"
+
 DuarteCorporation::Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)

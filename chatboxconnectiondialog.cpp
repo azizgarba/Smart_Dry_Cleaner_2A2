@@ -1,6 +1,10 @@
 #include "chatboxconnectiondialog.h"
 #include "ui_chatboxconnectiondialog.h"
 
+#include "QTranslator"
+#include "QInputDialog"
+#include "QApplication"
+
 ChatboxConnectionDialog::ChatboxConnectionDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ChatboxConnectionDialog)

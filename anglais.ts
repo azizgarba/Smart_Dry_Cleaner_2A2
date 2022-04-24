@@ -2,200 +2,593 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="fr_FR">
 <context>
+    <name>ChatboxConnectionDialog</name>
+    <message>
+        <source>Dialog</source>
+        <translation>Dialog</translation>
+    </message>
+    <message>
+        <source>Hostname:</source>
+        <translation>Hostname</translation>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation>Port</translation>
+    </message>
+    <message>
+        <source>Ok</source>
+        <translation>ok</translation>
+    </message>
+    <message>
+        <source>Annuler</source>
+        <translation>Cancel</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
-        <location filename="mainwindow.ui" line="20"/>
-        <source>Gestion des foutnisseurs</source>
-        <translation>management of suppliers</translation>
+        <source>MainWindow</source>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="51"/>
-        <source>Ajouter un Fournisseur</source>
-        <translation>Add a supplier</translation>
+        <source>Tab 1</source>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="76"/>
-        <source>CIN :</source>
+        <source>S&apos;identifier</source>
+        <translation>Sign in</translation>
+    </message>
+    <message>
+        <source>Nom d&apos;utilisateur</source>
+        <translation>Username</translation>
+    </message>
+    <message>
+        <source>Mot de passe</source>
+        <translation>Password</translation>
+    </message>
+    <message>
+        <source>Login</source>
+        <translation>Login</translation>
+    </message>
+    <message>
+        <source>Login avec carte</source>
+        <translation>Login with card</translation>
+    </message>
+</context>
+<context>
+    <name>MainWindow2</name>
+    <message>
+        <source>MainWindow</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Les Employees</source>
+        <translation>The employees</translation>
+    </message>
+    <message>
+        <source>Ajouter les Employés</source>
+        <translation>Add the employees</translation>
+    </message>
+    <message>
+        <source>ID</source>
         <translation>ID</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="114"/>
-        <source>Nom :</source>
+        <source>Nom</source>
+        <translation>Last Name</translation>
+    </message>
+    <message>
+        <source>Prenom</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="152"/>
-        <source>Numero :</source>
-        <translation>Numbre</translation>
+        <source>Numéro</source>
+        <translation>Number</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="174"/>
-        <source>Adresse :</source>
-        <translation>Address</translation>
+        <source>Adresse</source>
+        <translation>Adress</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="196"/>
-        <source>Paiment :</source>
-        <translation>Payment</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="218"/>
-        <source>Date :</source>
-        <translation>Date</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="317"/>
         <source>Ajouter</source>
         <translation>Add</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="343"/>
         <source>Modifier</source>
         <translation>Modify</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="364"/>
-        <location filename="mainwindow.ui" line="507"/>
-        <source>Afficher</source>
-        <translation>Display</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="400"/>
         <source>Supprimer</source>
         <translation>Delete</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="424"/>
-        <source>Trier par :</source>
-        <translation>Sort by</translation>
+        <source>QR Code</source>
+        <translation>QR Code</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="444"/>
-        <source>Nom</source>
+        <source>Excel</source>
+        <translation>Excel</translation>
+    </message>
+    <message>
+        <source>Trier</source>
+        <translation>Sort</translation>
+    </message>
+    <message>
+        <source>Prénom</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="449"/>
-        <source>Nombre d&apos;achat</source>
-        <translation>Number of purchases</translation>
+        <source>Chat</source>
+        <translation>Chat</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="454"/>
-        <source>Date</source>
-        <translation>Date</translation>
+        <source>Les Clients</source>
+        <translation>The clients</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="533"/>
+        <source>Ajout Client</source>
+        <translation>Add the clients</translation>
+    </message>
+    <message>
+        <source>CIN:</source>
+        <translation>ID</translation>
+    </message>
+    <message>
+        <source>Nom:</source>
+        <translation>Last Name</translation>
+    </message>
+    <message>
+        <source>Prenom:</source>
+        <translation>Name</translation>
+    </message>
+    <message>
+        <source>Valider</source>
+        <translation>Validate</translation>
+    </message>
+    <message>
+        <source>Adresse:</source>
+        <translation>Adress</translation>
+    </message>
+    <message>
+        <source>Numero:</source>
+        <translation>Number</translation>
+    </message>
+    <message>
+        <source>E-mail:</source>
+        <translation>E-mail</translation>
+    </message>
+    <message>
+        <source>Age:</source>
+        <translation>Age</translation>
+    </message>
+    <message>
+        <source>Generer Coupon</source>
+        <translation>Generate coupon</translation>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation>Mail</translation>
+    </message>
+    <message>
+        <source>Age</source>
+        <translation>Age</translation>
+    </message>
+    <message>
+        <source>Trier par:</source>
+        <translation>Sort</translation>
+    </message>
+    <message>
+        <source>Afficher</source>
+        <translation>Display</translation>
+    </message>
+    <message>
+        <source>Les Produits</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Etat_P</source>
+        <translation>The products</translation>
+    </message>
+    <message>
+        <source>Chercher</source>
+        <translation>Search</translation>
+    </message>
+    <message>
+        <source>prix</source>
+        <translation>Price</translation>
+    </message>
+    <message>
+        <source>Ajouter un produit</source>
+        <translation>Add the product</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Type</translation>
+    </message>
+    <message>
+        <source>Matiere</source>
+        <translation>Material</translation>
+    </message>
+    <message>
+        <source>Prix</source>
+        <translation>Price</translation>
+    </message>
+    <message>
+        <source>Etat</source>
+        <translation>Status</translation>
+    </message>
+    <message>
+        <source>Ajouter une offre</source>
+        <translation>Add an offer</translation>
+    </message>
+    <message>
+        <source>Reduction</source>
+        <translation>Discount</translation>
+    </message>
+    <message>
+        <source>Type de produit</source>
+        <translation>Type of the product</translation>
+    </message>
+    <message>
+        <source>Afficher Excel</source>
+        <translation>Excel</translation>
+    </message>
+    <message>
+        <source>Les Fournisseurs</source>
+        <translation>The Suppliers</translation>
+    </message>
+    <message>
         <source>Afficher un PDF</source>
         <translation>Display PDF</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="562"/>
-        <source>Statistique</source>
-        <translation>Statistics</translation>
+        <source>Ajouter un Fournisseur</source>
+        <translation>Add a supplier</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="588"/>
-        <source>Gestion de Fournisseurs</source>
-        <translation>Management of suppliers</translation>
+        <source>CIN :</source>
+        <translation>ID</translation>
+    </message>
+    <message>
+        <source>Nom :</source>
+        <translation>Last Name</translation>
+    </message>
+    <message>
+        <source>Numero :</source>
+        <translation>Number</translation>
+    </message>
+    <message>
+        <source>Adresse :</source>
+        <translation>Adress</translation>
+    </message>
+    <message>
+        <source>Paiment :</source>
+        <translation>Payment</translation>
+    </message>
+    <message>
+        <source>Date :</source>
+        <translation>Date</translation>
+    </message>
+    <message>
+        <source>Statistique</source>
+        <translation>Statistic</translation>
+    </message>
+    <message>
+        <source>Trier par :</source>
+        <translation>Sort by</translation>
+    </message>
+    <message>
+        <source>Nombre d&apos;achat</source>
+        <translation>Number of purchases</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Date</translation>
+    </message>
+    <message>
+        <source>Les Matériels</source>
+        <translation>The materials</translation>
+    </message>
+    <message>
+        <source>Gestion du materiel</source>
+        <translation>Management of the Materials</translation>
+    </message>
+    <message>
+        <source>Modele :</source>
+        <translation>Model</translation>
+    </message>
+    <message>
+        <source>Reference :</source>
+        <translation>Reference</translation>
+    </message>
+    <message>
+        <source>Date d&apos;achat :</source>
+        <translation>Date of the purchases</translation>
+    </message>
+    <message>
+        <source>Temperature :</source>
+        <translation>Temperature</translation>
+    </message>
+    <message>
+        <source>Inserer image</source>
+        <translation>Insert image</translation>
+    </message>
+    <message>
+        <source>Etat :</source>
+        <translation>State</translation>
+    </message>
+    <message>
+        <source>en panne</source>
+        <translation>Broken</translation>
+    </message>
+    <message>
+        <source>en pause</source>
+        <translation>on break</translation>
+    </message>
+    <message>
+        <source>en marche</source>
+        <translation>in motion</translation>
+    </message>
+    <message>
+        <source>Exporter Excel</source>
+        <translation>Excel</translation>
+    </message>
+    <message>
+        <source>Historique</source>
+        <translation>History</translation>
+    </message>
+    <message>
+        <source>Affichage</source>
+        <translation>Display</translation>
+    </message>
+    <message>
+        <source>Modifer</source>
+        <translation>Modify</translation>
+    </message>
+    <message>
+        <source>Ancienneté</source>
+        <translation>Seniority</translation>
+    </message>
+    <message>
+        <source>Nbr produits</source>
+        <translation>Number of the products</translation>
+    </message>
+    <message>
+        <source>Excel file</source>
+        <translation>Excel</translation>
+    </message>
+    <message>
+        <source>Excel Files (*.xls)</source>
+        <translation>Excel file (*.xls)</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>Done</translation>
+    </message>
+    <message>
+        <source>%1 records exported!</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Tous les informations ont été enregistrée</source>
+        <translation>All the files has been saved</translation>
+    </message>
+    <message>
+        <source>choose</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source> (*.png *.jpg *.jpeg)</source>
+        <translation></translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="fournisseur.cpp" line="68"/>
-        <location filename="fournisseur.cpp" line="125"/>
-        <location filename="fournisseur.cpp" line="141"/>
-        <location filename="fournisseur.cpp" line="155"/>
-        <source>CIN</source>
+        <source>sql query successful</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="fournisseur.cpp" line="69"/>
-        <location filename="fournisseur.cpp" line="126"/>
-        <location filename="fournisseur.cpp" line="142"/>
-        <location filename="fournisseur.cpp" line="156"/>
-        <source>Numero</source>
+        <source>row created and saved.
+Click Cancel to exit.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="fournisseur.cpp" line="70"/>
-        <location filename="fournisseur.cpp" line="127"/>
-        <location filename="fournisseur.cpp" line="143"/>
-        <location filename="fournisseur.cpp" line="157"/>
-        <source>Paiment</source>
+        <source>sql query unsuccessful</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="fournisseur.cpp" line="71"/>
-        <location filename="fournisseur.cpp" line="128"/>
-        <location filename="fournisseur.cpp" line="144"/>
-        <location filename="fournisseur.cpp" line="158"/>
-        <source>Adresse</source>
+        <source>row not created and not saved.
+Click Cancel to exit.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="fournisseur.cpp" line="72"/>
-        <location filename="fournisseur.cpp" line="129"/>
-        <location filename="fournisseur.cpp" line="145"/>
-        <location filename="fournisseur.cpp" line="159"/>
-        <source>Date</source>
+        <source>row updated and saved.
+Click Cancel to exit.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="fournisseur.cpp" line="73"/>
-        <location filename="fournisseur.cpp" line="130"/>
-        <location filename="fournisseur.cpp" line="146"/>
-        <location filename="fournisseur.cpp" line="160"/>
+        <source>row not updated and not saved.
+Click Cancel to exit.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>row deleted successfully.
+Click Cancel to exit.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>row not deleted.
+Click Cancel to exit.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source> successfully.
+Click Cancel to exit.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>sql query not successful</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>unsuccessfully.
+Click Cancel to exit.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>don&apos;t have fidelity points.
+Click Cancel to exit.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>ID</source>
+        <translation></translation>
+    </message>
+    <message>
         <source>Nom</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="main.cpp" line="17"/>
+        <source>Prenom</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Numero</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Adresse</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>CIN</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Paiment</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation></translation>
+    </message>
+    <message>
         <source>database is open</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="main.cpp" line="18"/>
         <source>connection successful.
 Click Cancel to exit.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="62"/>
-        <location filename="mainwindow.cpp" line="172"/>
-        <source>ok</source>
+        <source>database is not open</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="63"/>
-        <source>Ajout effectué.
-Click cancel to exit.</source>
+        <source>connection failed.
+Click Cancel to exit.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="67"/>
-        <location filename="mainwindow.cpp" line="177"/>
-        <source>not ok</source>
+        <source>Suppression</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="68"/>
-        <source>Ajout non effectué.
-Click cancel to exit.</source>
+        <source>Veuillez Choisir un employé du Tableau.
+Click Ok to exit.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="173"/>
-        <source>Modification effectué.
-Click cancel to exit.</source>
+        <source>email error</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="178"/>
-        <source>Modification non effectué.
-Click cancel to exit.</source>
+        <source>pls enter a valid email.
+Click Cancel to exit.</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>row not shown.
+Click Cancel to exit.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>SENT</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Email Sent Successfully.
+Click Cancel to exit.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>affichage effectué 
+click cancel to exit.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>not OK</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>affichge non effectué 
+click cancel to exit.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>suppression effectué 
+click cancel to exit.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>suppression non effectué 
+click cancel to exit.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>error 
+click cancel to exit.</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
+    <name>Smtp</name>
+    <message>
+        <source>Message sent</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Failed to send message</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
+    <name>Widget</name>
+    <message>
+        <source>Form</source>
+        <translation>Form</translation>
+    </message>
+    <message>
+        <source>Message:</source>
+        <translation>Message</translation>
+    </message>
+    <message>
+        <source>Envoyer</source>
+        <translation>Send</translation>
+    </message>
+    <message>
+        <source>Se Connecter</source>
+        <translation>Sign in</translation>
+    </message>
+    <message>
+        <source>Nom:</source>
+        <translation>Name</translation>
     </message>
 </context>
 </TS>
