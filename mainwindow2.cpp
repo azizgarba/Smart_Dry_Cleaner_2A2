@@ -39,7 +39,8 @@
 #include "QApplication"
 #include "qcustomplot.h"
 #include "materiel.h"
-
+#include<QAbstractSocket>
+#include<QSslSocket>
 
 
 MainWindow2::MainWindow2(QWidget *parent) :
