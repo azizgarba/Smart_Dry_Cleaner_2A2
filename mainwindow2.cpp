@@ -41,7 +41,15 @@
 #include "materiel.h"
 #include<QAbstractSocket>
 #include<QSslSocket>
+#include <QtSerialPort/QSerialPort>
+#include <QtSerialPort/QSerialPortInfo>
+#include "arduino.h"
 
+//*******Arduino declaration******
+int nb=0;
+int test=0;
+int pas=0;
+//********************************
 
 MainWindow2::MainWindow2(QWidget *parent) :
     QMainWindow(parent),
@@ -1004,6 +1012,30 @@ void MainWindow2::on_chercher_textChanged(const QString &arg1)
 {
     Fournisseur Fe;
     ui->tab_fournisseurs->setModel(Fe.chercher(arg1));
+}
+
+
+void MainWindow2::update_nb()
+{
+
+  data=A.read_from_arduino();
+
+  if(data == "0000"){
+      test=1;
+  }
+  if(data == "1111" && test == 1){
+      test=0;
+      pas++;
+      if(pas==2){
+          nb++;
+          pas=0;
+      }
+
+  }
+
+qDebug()<<"test"<<nb;
+qDebug()<<"data"<<data;
+
 }
 
 //******************************************Materiel**********************

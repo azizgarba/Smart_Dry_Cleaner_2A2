@@ -25,6 +25,8 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+
+
 private:
     Ui::MainWindow *ui;
     QSqlDatabase db;
@@ -34,5 +36,10 @@ private:
 
         bool arduino_available;
         void arduino_init();
+
+
+        //arduino zied
+        QByteArray data; // variable contenant les données reçues
+        Arduino A; // objet temporaire
 };
 #endif // MAINWINDOW_H

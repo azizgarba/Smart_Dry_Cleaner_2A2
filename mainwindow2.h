@@ -140,6 +140,8 @@ private slots:
 
     void on_chercher_textChanged(const QString &arg1);
 
+    void update_nb();
+
 public slots:
     void openDialog();
 
