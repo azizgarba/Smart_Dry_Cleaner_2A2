@@ -46,9 +46,9 @@
 #include "arduino.h"
 
 //*******Arduino declaration******
-int nb=0;
-int test=0;
-int pas=0;
+int nb1=0;
+int test1=0;
+int pas1=0;
 //********************************
 
 MainWindow2::MainWindow2(QWidget *parent) :
@@ -1021,19 +1021,19 @@ void MainWindow2::update_nb()
   data=A.read_from_arduino();
 
   if(data == "0000"){
-      test=1;
+      test1=1;
   }
-  if(data == "1111" && test == 1){
-      test=0;
-      pas++;
-      if(pas==2){
-          nb++;
-          pas=0;
+  if(data == "1111" && test1 == 1){
+      test1=0;
+      pas1++;
+      if(pas1==2){
+          nb1++;
+          pas1=0;
       }
 
   }
 
-qDebug()<<"test"<<nb;
+qDebug()<<"test"<<nb1;
 qDebug()<<"data"<<data;
 
 }
