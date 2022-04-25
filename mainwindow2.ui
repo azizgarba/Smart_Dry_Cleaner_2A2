@@ -42,7 +42,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>1</number>
     </property>
     <property name="usesScrollButtons">
      <bool>false</bool>
@@ -888,14 +888,17 @@ background-color: rgb(169, 223, 247);</string>
       <widget class="QLineEdit" name="lineEdit_search_2">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>501</width>
+         <x>30</x>
+         <y>10</y>
+         <width>431</width>
          <height>20</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">background-color: rgb(169,223,247);
+color: rgb(0,0,0);
+border-color: rgb(0, 129, 233);
+border-radius:10px;</string>
        </property>
        <property name="text">
         <string/>
@@ -2753,43 +2756,6 @@ border-radius:10px;</string>
         <string/>
        </property>
       </widget>
-      <widget class="QLabel" name="etat">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>320</y>
-         <width>211</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="on_stop_buz">
-       <property name="geometry">
-        <rect>
-         <x>70</x>
-         <y>410</y>
-         <width>93</width>
-         <height>29</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(169,223,247);
-color: rgb(0,0,0);
-border-color: rgb(0, 129, 233);
-border-radius:10px;</string>
-       </property>
-       <property name="text">
-        <string>Buzzer off</string>
-       </property>
-      </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_12">
       <property name="geometry">
@@ -2854,10 +2820,10 @@ border-radius:10px;</string>
       <widget class="QTableView" name="affhisto">
        <property name="geometry">
         <rect>
-         <x>60</x>
-         <y>70</y>
-         <width>451</width>
-         <height>161</height>
+         <x>130</x>
+         <y>60</y>
+         <width>381</width>
+         <height>191</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -2865,6 +2831,43 @@ border-radius:10px;</string>
 color: rgb(0,0,0);
 border-color: rgb(0, 129, 233);
 border-radius:10px;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="etat">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>10</y>
+         <width>211</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="on_stop_buz">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>230</y>
+         <width>93</width>
+         <height>29</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(169,223,247);
+color: rgb(0,0,0);
+border-color: rgb(0, 129, 233);
+border-radius:10px;</string>
+       </property>
+       <property name="text">
+        <string>Buzzer off</string>
        </property>
       </widget>
      </widget>

@@ -147,6 +147,10 @@ private slots:
 
     void on_pushButton_17_clicked();
 
+    void on_tab_widget_tabBarClicked(int index);
+
+    void on_tab_widget_currentChanged(int index);
+
 public slots:
     void openDialog();
 

@@ -20,11 +20,11 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    int aziz=2;
+    int aziz=1;
 
     //arduino emna
-    if(aziz==0){
-    serial = new QSerialPort();
+   // if(aziz==0){
+   /* serial = new QSerialPort();
     arduino_available = false;
 
     foreach (const QSerialPortInfo &serial_Info, QSerialPortInfo::availablePorts()) {
@@ -36,8 +36,8 @@ MainWindow::MainWindow(QWidget *parent)
     if(arduino_available){
         arduino_init();
     }
-    }
-    else if(aziz==1){
+    }*/
+     if(aziz==1){
     //Arduino zied
               int ret=A.connect_arduino(); // lancer la connexion à arduino
                  switch(ret){
@@ -47,8 +47,14 @@ MainWindow::MainWindow(QWidget *parent)
                     break;
                  case(-1):qDebug() << "arduino is not available";
                  }
-                  QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_nb())); // permet de lancer
+                  //QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_nb())); // permet de lancer   TO DOOOOO!!!!!
                   //le slot update_label suite à la reception du signal readyRead (reception des données).
+                  //QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update()));
+                 /*int test=A.close_arduino();
+                 if(test==0){
+                     qDebug()<<"closed!!!!!";
+                 }*/
+                 aziz=2;
 }
     else if(aziz==2){
 
@@ -76,7 +82,9 @@ void MainWindow::arduino_init()
 
 void MainWindow::on_pushButton_clicked()
 {
-
+    /*if(serial->isWritable()){
+           serial->write("0");
+           qDebug()<<"Refuser";*/
 
     QString log = ui->lineEdit->text();
         QString mdps = ui->lineEdit_2->text();
@@ -90,6 +98,11 @@ void MainWindow::on_pushButton_clicked()
           }
           if(count==1){
               ui->label_3->setText("Username and password is correct");
+              //see if it works!!!!
+              int test=A.close_arduino();
+              if(test==0){
+                  qDebug()<<"arduino Closed!!";
+              }
               this->hide();
               MainWindow2 *newmain= new MainWindow2();
               newmain->show();
@@ -107,6 +120,7 @@ void MainWindow::on_pushButton_clicked()
 
 
 
+
 void MainWindow::on_pushButton_2_clicked()
 {
     if(serial->isWritable()){
@@ -115,7 +129,9 @@ void MainWindow::on_pushButton_2_clicked()
          this->hide();
          MainWindow2 *newmain= new MainWindow2();
          newmain->show();
+
      }
+    // if hedhi khedmet ekteb hakeya A.close_arduino();
 }
 void MainWindow::update_nb()
 {

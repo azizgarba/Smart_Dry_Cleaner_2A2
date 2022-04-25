@@ -56,8 +56,8 @@ MainWindow2::MainWindow2(QWidget *parent) :
     ui(new Ui::MainWindow2)
 {
     ui->setupUi(this);
-    //arduino aziz
-    int ret=A.connect_arduino();//lancer la connexion arduino
+    //arduino aziz      TO TESTTTTT!!!!
+   /* int ret=A.connect_arduino();//lancer la connexion arduino
     switch(ret){
     case(0):qDebug()<<"arduino is available and connected to :"<< A.getarduino_port_name();
     break;
@@ -67,6 +67,7 @@ MainWindow2::MainWindow2(QWidget *parent) :
     }
 
     QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update()));
+    QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_nb()));*/
 
     ui->tableView->setModel(etmp.afficher());
 
@@ -154,8 +155,9 @@ MainWindow2::MainWindow2(QWidget *parent) :
                          break;
                       case(-1):qDebug() << "arduino is not available";
                       }*/
-                       QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_nb())); // permet de lancer
+                       //QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_nb())); // permet de lancer
                        //le slot update_label suite à la reception du signal readyRead (reception des données).
+                       //QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update()));
 }
 
 MainWindow2::~MainWindow2()
@@ -1346,5 +1348,50 @@ else if(data=="2"){
 void MainWindow2::on_pushButton_17_clicked()
 {
     A.write_to_arduino("4");
+}
+
+
+void MainWindow2::on_tab_widget_tabBarClicked(int index)
+{   if(index==4){
+        int ret=A.connect_arduino();//lancer la connexion arduino
+        switch(ret){
+        case(0):qDebug()<<"arduino is available and connected to :"<< A.getarduino_port_name();
+        break;
+        case(1):qDebug()<<"arduino is available but not connected to:"<<A.getarduino_port_name();
+            break;
+        case(-1):qDebug()<<"arduino not availabe";
+        }
+
+        QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update()));
+        QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_nb()));}
+        else if(index==3){
+            int test=A.close_arduino();
+            if(test==0){
+                qDebug()<<"arduino closed!!!";
+            }
+        }
+}
+
+
+void MainWindow2::on_tab_widget_currentChanged(int index)
+{
+    /*if(ui->tab_5->isEnabled()){
+       int ret=A.connect_arduino();//lancer la connexion arduino
+       switch(ret){
+       case(0):qDebug()<<"arduino is available and connected to :"<< A.getarduino_port_name();
+       break;
+       case(1):qDebug()<<"arduino is available but not connected to:"<<A.getarduino_port_name();
+           break;
+       case(-1):qDebug()<<"arduino not availabe";
+       }
+
+       QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update()));
+       QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_nb()));}
+       else if(ui->tab_4->isEnabled()){
+           int test=A.close_arduino();
+           if(test==0){
+               qDebug()<<"arduino closed!!!";
+           }
+       }*/
 }
 
