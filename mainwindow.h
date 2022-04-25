@@ -24,8 +24,9 @@ private slots:
     void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();
-
+   //arduino zied
    void update_nb();
+
 
 private:
     Ui::MainWindow *ui;

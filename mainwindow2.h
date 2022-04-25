@@ -22,6 +22,9 @@ public:
     ~MainWindow2();
 
 private slots:
+    //arduino aziz
+    void update();
+
     void on_pushButton_ajouter_clicked();
 
     void on_pushButton_modif_clicked();
@@ -141,6 +144,8 @@ private slots:
     void on_chercher_textChanged(const QString &arg1);
 
     void update_nb();
+
+    void on_pushButton_17_clicked();
 
 public slots:
     void openDialog();

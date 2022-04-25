@@ -20,10 +20,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    bool aziz=false;
+    int aziz=2;
 
     //arduino emna
-    if(aziz){
+    if(aziz==0){
     serial = new QSerialPort();
     arduino_available = false;
 
@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
         arduino_init();
     }
     }
-    else{
+    else if(aziz==1){
     //Arduino zied
               int ret=A.connect_arduino(); // lancer la connexion à arduino
                  switch(ret){
@@ -50,6 +50,10 @@ MainWindow::MainWindow(QWidget *parent)
                   QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_nb())); // permet de lancer
                   //le slot update_label suite à la reception du signal readyRead (reception des données).
 }
+    else if(aziz==2){
+
+
+    }
 }
 
 MainWindow::~MainWindow()

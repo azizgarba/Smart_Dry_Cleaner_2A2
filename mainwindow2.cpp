@@ -56,6 +56,18 @@ MainWindow2::MainWindow2(QWidget *parent) :
     ui(new Ui::MainWindow2)
 {
     ui->setupUi(this);
+    //arduino aziz
+    int ret=A.connect_arduino();//lancer la connexion arduino
+    switch(ret){
+    case(0):qDebug()<<"arduino is available and connected to :"<< A.getarduino_port_name();
+    break;
+    case(1):qDebug()<<"arduino is available but not connected to:"<<A.getarduino_port_name();
+        break;
+    case(-1):qDebug()<<"arduino not availabe";
+    }
+
+    QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update()));
+
     ui->tableView->setModel(etmp.afficher());
 
     QRegularExpression QRegExp("[a-zA-Z]+");
@@ -134,14 +146,14 @@ MainWindow2::MainWindow2(QWidget *parent) :
 
 
          //Arduino
-                   int ret=A.connect_arduino(); // lancer la connexion à arduino
+                  /* int ret=A.connect_arduino(); // lancer la connexion à arduino   I THINK HEDHA IS USELESS
                       switch(ret){
                       case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
                           break;
                       case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
                          break;
                       case(-1):qDebug() << "arduino is not available";
-                      }
+                      }*/
                        QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_nb())); // permet de lancer
                        //le slot update_label suite à la reception du signal readyRead (reception des données).
 }
@@ -164,7 +176,7 @@ void MainWindow2::on_pushButton_ajouter_clicked()
         E.ajouter();
 
         QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-        notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+        notifyIcon->setIcon(QIcon("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
         notifyIcon->show();
         notifyIcon->showMessage("Gestion d'un employé","Un employé a été ajoutée",QSystemTrayIcon::Information,15000);
 
@@ -185,7 +197,7 @@ void MainWindow2::on_pushButton_modif_clicked()
         E.modifier();
 
         QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-        notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+        notifyIcon->setIcon(QIcon("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
         notifyIcon->show();
         notifyIcon->showMessage("Gestion d'un employé","Un employé a été modifié",QSystemTrayIcon::Information,15000);
 
@@ -225,7 +237,7 @@ void MainWindow2::on_pushButton_supp_clicked()
                ui->statusbar->showMessage("SUPPRESSION : SUCCESS");
            }
            QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-           notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+           notifyIcon->setIcon(QIcon("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
            notifyIcon->show();
            notifyIcon->showMessage("Gestion d'un employé","Un employé a été supprimé",QSystemTrayIcon::Information,15000);
 
@@ -389,7 +401,7 @@ void MainWindow2::on_pushButton_8_clicked()
     ui->lineEdit_age_3->setText("");
     ui->tableView_3->setModel(c.afficher_client());
     QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-    notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+    notifyIcon->setIcon(QIcon("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
     notifyIcon->show();
     notifyIcon->showMessage("Gestion d'un client","Un client a été ajouté",QSystemTrayIcon::Information,15000);
 
@@ -465,7 +477,7 @@ void MainWindow2::on_pushButton_12_clicked()
     ui->lineEdit_age_3->setText("");
     ui->tableView_3->setModel(c.afficher_client());
     QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-    notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+    notifyIcon->setIcon(QIcon("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
     notifyIcon->show();
     notifyIcon->showMessage("Gestion d'un client","Un client a été supprimé",QSystemTrayIcon::Information,15000);
 }
@@ -495,7 +507,7 @@ void MainWindow2::on_pushButton_11_clicked()
     ui->lineEdit_age_3->setText("");
     ui->tableView_3->setModel(c.afficher_client());
     QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-    notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+    notifyIcon->setIcon(QIcon("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
     notifyIcon->show();
     notifyIcon->showMessage("Gestion d'un client","Un client a été modifié",QSystemTrayIcon::Information,15000);
 
@@ -518,7 +530,7 @@ void MainWindow2::on_pushButton_9_clicked()
  prenom=ui->lineEdit_prenom_4->text();
 QDateTime date = QDateTime::currentDateTime();
 QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
-QPdfWriter pdf("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/pdf_test1.pdf");
+QPdfWriter pdf("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/aziz coupon/pdf_test1.pdf");
 
 QPainter painter(&pdf);
 
@@ -531,12 +543,12 @@ painter.setPen(Qt::red);
 painter.drawText(100,1000,"CODE:10HYriKf");
 painter.setPen(Qt::blue);
 painter.drawText(100,1200,formattedTime);
-painter.drawPixmap(QRect(3000,2000,4000,3000),QPixmap("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/coupon10%OFF.png"));
-painter.drawPixmap(QRect(-300,-300,1500,1000),QPixmap("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+painter.drawPixmap(QRect(3000,2000,4000,3000),QPixmap("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/aziz coupon/coupon10%OFF.png"));
+painter.drawPixmap(QRect(-300,-300,1500,1000),QPixmap("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
 
 painter.end();
 c.nbr_fidelite2(prix,nom);
-QDesktopServices::openUrl(QUrl("file:///C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/pdf_test1.pdf"));
+QDesktopServices::openUrl(QUrl("file:///D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/aziz coupon/pdf_test1.pdf"));
 //c.decre_pts_fidelite(nom);
 }
 
@@ -568,7 +580,7 @@ void MainWindow2::on_pushButton_2_clicked()
     p.ajouter() ;
 
     QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-    notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+    notifyIcon->setIcon(QIcon("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
     notifyIcon->show();
     notifyIcon->showMessage("Gestion d'un produit","Un produit a été ajoutée",QSystemTrayIcon::Information,15000);
 
@@ -593,7 +605,7 @@ void MainWindow2::on_pushButton_6_clicked()
 
       produit p (d, t, m, e, prr);
       QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-      notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+      notifyIcon->setIcon(QIcon("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
       notifyIcon->show();
       notifyIcon->showMessage("Gestion d'un produit","Un produit a été modifiée",QSystemTrayIcon::Information,15000);
 
@@ -615,7 +627,7 @@ void MainWindow2::on_pushButton_7_clicked()
 
       }
       QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-      notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+      notifyIcon->setIcon(QIcon("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
       notifyIcon->show();
       notifyIcon->showMessage("Gestion d'un produit","Un produit a été supprimée",QSystemTrayIcon::Information,15000);
 
@@ -775,7 +787,7 @@ void MainWindow2::on_pb_ajouter_clicked()
  F.ajouter();
 
  QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
- notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+ notifyIcon->setIcon(QIcon("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
  notifyIcon->show();
  notifyIcon->showMessage("Gestion d'un fournisseur","Un fournisseur a été ajoutée",QSystemTrayIcon::Information,15000);
 
@@ -815,7 +827,7 @@ void MainWindow2::on_pb_modifier_clicked()
      F.modifier();
 
      QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-     notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+     notifyIcon->setIcon(QIcon("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
      notifyIcon->show();
      notifyIcon->showMessage("Gestion d'un fournisseur","Un fournisseur a été modifié",QSystemTrayIcon::Information,15000);
 
@@ -832,7 +844,7 @@ void MainWindow2::on_pb_supprimer_clicked()
                        ui->statusbar->showMessage("SUPPRESSION : SUCCESS");
                    }
                    QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-                   notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+                   notifyIcon->setIcon(QIcon("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
                    notifyIcon->show();
                    notifyIcon->showMessage("Gestion d'un fournisseur","Un fournisseur a été supprimé",QSystemTrayIcon::Information,15000);
 }
@@ -959,7 +971,7 @@ void MainWindow2::on_pdf_aff_clicked()
        paiment=ui->le_paiment->text();
 
 
-       QPdfWriter pdf("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/image/pdf_four.pdf");
+       QPdfWriter pdf("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/image/pdf_four.pdf");
 
        QPainter painter(&pdf);
 
@@ -973,14 +985,14 @@ void MainWindow2::on_pdf_aff_clicked()
        painter.drawText(100,3000,"DATE :"+space+""+date+"");
        painter.drawText(8400,5000,"Signature");
 
-       painter.drawPixmap(QRect(-300,-300,2000,1300),QPixmap("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/image/logo.png"));
+       painter.drawPixmap(QRect(-300,-300,2000,1300),QPixmap("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/image/logo.png"));
 
-        painter.drawPixmap(QRect(3300,-1000,3000,3000),QPixmap("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/image/titre.png"));
+        painter.drawPixmap(QRect(3300,-1000,3000,3000),QPixmap("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/image/titre.png"));
 
 
        painter.end();
 
-     QDesktopServices::openUrl(QUrl("file:///C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/image/pdf_four.pdf"));
+     QDesktopServices::openUrl(QUrl("file:///D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/image/pdf_four.pdf"));
 }
 
 void MainWindow2::on_tab_fournisseurs_activated(const QModelIndex &index)
@@ -1070,7 +1082,7 @@ ui->image->setPixmap(QPixmap::fromImage(pix));
 //QPixmap pix1("C:/Users/User/Desktop/projet qt/im.jpg");
 //ui->image->setPixmap(pix1);
        QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-       notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+       notifyIcon->setIcon(QIcon("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
        notifyIcon->show();
        notifyIcon->showMessage("Gestion d'un matériel","Un matériel a été ajoutée",QSystemTrayIcon::Information,15000);
 
@@ -1175,7 +1187,7 @@ ui->image->setText("");
 //QPixmap pix1(":/Users/User/Desktop/projet qt/im.jpg");
 //ui->image->setPixmap(pix1);
 QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
-notifyIcon->setIcon(QIcon("C:/Users/ASUS/Desktop/hydro+/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
+notifyIcon->setIcon(QIcon("D:/Esprit/c++/projectC++/integration/Smart_Dry_Cleaner_2A2/aziz coupon/hydro+2.png"));
 notifyIcon->show();
 notifyIcon->showMessage("Gestion d'un matériel","Un matériel a été modifié",QSystemTrayIcon::Information,15000);
 
@@ -1312,5 +1324,27 @@ materiel mo(ref_m,model_m,etat_m,date_acham,tempera_m,image_m);
 bool test=mo.afficher();
     ui->affmate->setModel(mtmp.chercher(arg1));
 }
+//arduino aziz
+void MainWindow2::update(){
+data=A.read_from_arduino();
+if(data=="0")
+{
+ui->etat->setText("Temperature normal");
+A.write_to_arduino("4");
+}
+else if(data=="1")
+{
+    ui->etat->setText("Temperature trés elevée!!");
+    A.write_to_arduino("3");
+}
+else if(data=="2"){
+    ui->etat->setText("Temperature elevée!!");
+    A.write_to_arduino("5");
+}
+}
 
+void MainWindow2::on_pushButton_17_clicked()
+{
+    A.write_to_arduino("4");
+}
 
